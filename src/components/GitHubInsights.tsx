@@ -9,25 +9,42 @@ export default function GitHubInsights() {
         GitHub Insights
       </h2>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
-        <img
-          src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true`}
-          alt="GitHub streak stats"
-          width={495}
-          height={170}
-          style={{ maxWidth: '100%', height: 'auto', borderRadius: '6px', border: '1px solid rgba(99,102,241,0.15)' }}
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          src={`https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${theme}&hide_border=true&langs_count=8`}
-          alt="Top languages"
-          width={495}
-          height={170}
-          style={{ maxWidth: '100%', height: 'auto', borderRadius: '6px', border: '1px solid rgba(99,102,241,0.15)' }}
-          loading="lazy"
-          decoding="async"
-        />
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', alignItems: 'flex-start' }}>
+        <div style={{
+          borderRadius: '8px',
+          border: '1px solid rgba(99,102,241,0.15)',
+          overflow: 'hidden',
+          lineHeight: 0,
+          flexShrink: 0,
+          maxWidth: '100%',
+        }}>
+          <img
+            src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true`}
+            alt="GitHub streak stats"
+            width={495}
+            style={{ display: 'block', width: '100%', height: 'auto', maxWidth: '495px' }}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div style={{
+          borderRadius: '8px',
+          border: '1px solid rgba(99,102,241,0.15)',
+          overflow: 'hidden',
+          lineHeight: 0,
+          flexShrink: 0,
+          maxWidth: '100%',
+        }}>
+          <img
+            src={`https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${theme}&hide_border=true&langs_count=8`}
+            alt="Top languages"
+            width={495}
+            style={{ display: 'block', width: '100%', height: 'auto', maxWidth: '495px' }}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </div>
     </section>
   )
