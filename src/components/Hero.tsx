@@ -33,10 +33,11 @@ export default function Hero() {
           {/* Profile photo */}
           <div className="profile-photo-wrap" style={{ flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
             <img
-              src="/profilepicture.jpg"
+              src="https://i.ibb.co/zhTP1qf9/profilepicture.jpg"
               alt="Maulana Rafi Nurdiansyah"
               className="profile-photo"
               loading="lazy"
+              onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
             />
           </div>
 

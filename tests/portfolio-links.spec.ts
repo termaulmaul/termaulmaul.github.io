@@ -77,9 +77,12 @@ test.describe('Portfolio links QA', () => {
     }
   })
 
-  test('profile picture loads', async ({ page }) => {
+  test('profile picture uses CDN src and loads', async ({ page }) => {
     const img = page.locator('img[alt="Maulana Rafi Nurdiansyah"]')
     await expect(img).toBeVisible()
+    const src = await img.getAttribute('src')
+    expect(src, 'profile src should point to CDN').toContain('ibb.co')
+    expect(src, 'profile src should not be local path').not.toMatch(/^\/profilepicture/)
     const naturalWidth = await img.evaluate((el: HTMLImageElement) => el.naturalWidth)
     expect(naturalWidth, 'profile photo not loaded (naturalWidth=0)').toBeGreaterThan(0)
   })
