@@ -26,9 +26,22 @@ export default function Hero() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: '800px', width: '100%', position: 'relative' }}>
-        {/* Terminal block */}
-        <div className="card-glass fade-up" style={{ borderRadius: '8px', padding: '32px', marginBottom: '32px' }}>
+      <div style={{ maxWidth: '900px', width: '100%', position: 'relative' }}>
+        {/* Profile + Terminal layout */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', alignItems: 'flex-start', marginBottom: '32px' }}>
+
+          {/* Profile photo */}
+          <div className="profile-photo-wrap" style={{ flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
+            <img
+              src="/profilepicture.jpg"
+              alt="Maulana Rafi Nurdiansyah"
+              className="profile-photo"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Terminal block */}
+          <div className="card-glass fade-up" style={{ borderRadius: '8px', padding: '32px', flex: 1, minWidth: '280px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#ef4444', display: 'inline-block' }} />
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block' }} />
@@ -68,6 +81,7 @@ export default function Hero() {
             <span className="cursor-blink">█</span>
           </p>
         </div>
+        </div>{/* end profile+terminal row */}
 
         {/* Tagline */}
         <p style={{ margin: '0 0 28px', fontSize: '13px', color: '#22d3ee', textAlign: 'center', letterSpacing: '0.1em', opacity: 0.8 }}>

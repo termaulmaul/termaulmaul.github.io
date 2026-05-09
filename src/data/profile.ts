@@ -8,7 +8,7 @@ export const profile = {
   email: 'maulana.rafi1717@gmail.com',
   github: 'https://github.com/termaulmaul',
   linkedin: 'https://www.linkedin.com/in/maulanarafi/',
-  credly: 'https://credly.com/users/maulana-rafi/badges',
+  credly: 'https://www.credly.com/users/maulanarafi/badges',
   patreon: 'https://patreon.com/hipsterweeds',
 
   about: [
