@@ -1,14 +1,19 @@
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import CurrentFocus from './components/CurrentFocus'
-import ExpertiseCards from './components/ExpertiseCards'
-import TechStack from './components/TechStack'
-import DomainExperience from './components/DomainExperience'
-import GitHubInsights from './components/GitHubInsights'
-import Projects from './components/Projects'
-import Certifications from './components/Certifications'
-import Contact from './components/Contact'
+
+// Lazy-load below-fold sections — reduces initial JS parse cost
+const CurrentFocus = lazy(() => import('./components/CurrentFocus'))
+const ExpertiseCards = lazy(() => import('./components/ExpertiseCards'))
+const TechStack = lazy(() => import('./components/TechStack'))
+const DomainExperience = lazy(() => import('./components/DomainExperience'))
+const GitHubInsights = lazy(() => import('./components/GitHubInsights'))
+const Projects = lazy(() => import('./components/Projects'))
+const Certifications = lazy(() => import('./components/Certifications'))
+const Contact = lazy(() => import('./components/Contact'))
+
+const Fallback = () => <div style={{ minHeight: '80px' }} aria-hidden />
 
 export default function App() {
   return (
@@ -17,14 +22,16 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <CurrentFocus />
-        <ExpertiseCards />
-        <TechStack />
-        <DomainExperience />
-        <GitHubInsights />
-        <Projects />
-        <Certifications />
-        <Contact />
+        <Suspense fallback={<Fallback />}>
+          <CurrentFocus />
+          <ExpertiseCards />
+          <TechStack />
+          <DomainExperience />
+          <GitHubInsights />
+          <Projects />
+          <Certifications />
+          <Contact />
+        </Suspense>
       </main>
       <footer style={{ borderTop: '1px solid rgba(99,102,241,0.1)', padding: '24px', textAlign: 'center', fontSize: '12px', color: '#475569' }}>
         <span>Maulana Rafi Nurdiansyah</span>

@@ -13,14 +13,20 @@ export default function GitHubInsights() {
         <img
           src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true`}
           alt="GitHub streak stats"
-          style={{ maxWidth: '100%', borderRadius: '6px', border: '1px solid rgba(99,102,241,0.15)' }}
+          width={495}
+          height={170}
+          style={{ maxWidth: '100%', height: 'auto', borderRadius: '6px', border: '1px solid rgba(99,102,241,0.15)' }}
           loading="lazy"
+          decoding="async"
         />
         <img
           src={`https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${theme}&hide_border=true&langs_count=8`}
           alt="Top languages"
-          style={{ maxWidth: '100%', borderRadius: '6px', border: '1px solid rgba(99,102,241,0.15)' }}
+          width={495}
+          height={170}
+          style={{ maxWidth: '100%', height: 'auto', borderRadius: '6px', border: '1px solid rgba(99,102,241,0.15)' }}
           loading="lazy"
+          decoding="async"
         />
       </div>
     </section>
