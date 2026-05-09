@@ -7,6 +7,7 @@ import TechStack from './components/TechStack'
 import DomainExperience from './components/DomainExperience'
 import GitHubInsights from './components/GitHubInsights'
 import Projects from './components/Projects'
+import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <DomainExperience />
         <GitHubInsights />
         <Projects />
+        <Certifications />
         <Contact />
       </main>
       <footer style={{ borderTop: '1px solid rgba(99,102,241,0.1)', padding: '24px', textAlign: 'center', fontSize: '12px', color: '#475569' }}>
