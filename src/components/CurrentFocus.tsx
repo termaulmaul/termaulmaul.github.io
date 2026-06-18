@@ -2,27 +2,27 @@ import { profile } from '../data/profile'
 
 export default function CurrentFocus() {
   return (
-    <section id="focus" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// current work</p>
-      <h2 style={{ margin: '0 0 40px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        Current Focus
-      </h2>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '12px' }}>
+    <section id="focus" className="py-24 px-6 max-w-6xl mx-auto scroll-mt-20">
+      <div className="section-label">
+        <span className="text-brand-500 mr-2">02.</span> Current Focus
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {profile.currentFocus.map((item, i) => (
           <div
             key={i}
-            className="card-glass"
-            style={{ borderRadius: '6px', padding: '14px 20px', display: 'flex', alignItems: 'center', gap: '12px' }}
+            className="card-glass rounded-xl p-5 flex items-start gap-4 group"
+            style={{ animationDelay: `${i * 100}ms` }}
           >
-            <span style={{ color: '#6366f1', fontSize: '14px', flexShrink: 0 }}>›</span>
-            <span style={{ fontSize: '13px', color: '#cbd5e1' }}>{item}</span>
+            <span className="text-accent-400 font-mono mt-1 group-hover:translate-x-1 transition-transform">›</span>
+            <span className="text-sm md:text-base text-slate-300 font-medium leading-relaxed">{item}</span>
           </div>
         ))}
       </div>
 
-      <div style={{ marginTop: '32px', padding: '16px 24px', borderLeft: '2px solid rgba(99,102,241,0.4)', backgroundColor: 'rgba(99,102,241,0.04)' }}>
-        <p style={{ margin: 0, fontSize: '12px', color: '#64748b', fontStyle: 'italic' }}>
+      <div className="mt-12 p-8 border-l-2 border-brand-500 bg-brand-500/5 rounded-r-xl relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <p className="text-sm md:text-base text-slate-400 italic font-medium relative z-10">
           "quality gates before production risk — latency, correctness, and release confidence"
         </p>
       </div>

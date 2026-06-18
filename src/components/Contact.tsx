@@ -2,32 +2,23 @@ import { profile } from '../data/profile'
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// reach out</p>
-      <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        Contact
-      </h2>
-      <p style={{ margin: '0 0 40px', fontSize: '13px', color: '#64748b' }}>
+    <section id="contact" className="py-24 px-6 max-w-6xl mx-auto scroll-mt-20">
+      <div className="section-label">
+        <span className="text-brand-500 mr-2">08.</span> Reach Out
+      </div>
+      
+      <p className="text-slate-400 text-sm md:text-base max-w-2xl mb-12">
         Open to conversations around QA automation, SDET practices, fintech systems, observability, and AI/ML quality workflows.
       </p>
 
-      <div className="card-glass" style={{ borderRadius: '8px', padding: '32px', maxWidth: '560px' }}>
+      <div className="card-glass rounded-2xl p-8 md:p-12 max-w-2xl mx-auto relative overflow-hidden">
         {/* Terminal block */}
-        <div style={{ marginBottom: '24px' }}>
-          <p style={{ margin: '0 0 4px', fontSize: '12px' }}>
-            <span style={{ color: '#4ade80', fontWeight: 600 }}>$ </span>
-            <span style={{ color: '#94a3b8' }}>cat contact.json</span>
+        <div className="mb-10">
+          <p className="font-mono text-sm mb-3">
+            <span className="text-accent-400 font-bold mr-2">$</span>
+            <span className="text-slate-400">cat contact.json</span>
           </p>
-          <pre style={{
-            margin: '8px 0 0',
-            padding: '16px',
-            backgroundColor: 'rgba(0,0,0,0.3)',
-            borderRadius: '4px',
-            fontSize: '12px',
-            color: '#94a3b8',
-            overflow: 'auto',
-            fontFamily: 'inherit',
-          }}>
+          <pre className="bg-black/40 rounded-xl p-6 text-sm md:text-base text-slate-300 overflow-x-auto font-mono border border-white/5 shadow-inner">
 {`{
   "email":    "${profile.email}",
   "github":   "termaulmaul",
@@ -37,22 +28,20 @@ export default function Contact() {
           </pre>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div className="flex flex-col gap-3 relative z-10">
           <ContactRow icon="✉" label="Email" href={`mailto:${profile.email}`} value={profile.email} />
           <ContactRow icon="⌥" label="GitHub" href={profile.github} value="github.com/termaulmaul" />
           <ContactRow icon="⎆" label="LinkedIn" href={profile.linkedin} value="linkedin.com/in/maulanarafi" />
           <ContactRow icon="✦" label="Credly" href={profile.credly} value="Certifications" />
         </div>
 
-        <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid rgba(99,102,241,0.12)', textAlign: 'center' }}>
-          <p style={{ margin: '0 0 12px', fontSize: '11px', color: '#334155' }}>support this work</p>
+        <div className="mt-12 pt-8 border-t border-brand-500/20 text-center relative z-10">
+          <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-4">support this work</p>
           <a
             href={profile.patreon}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: '11px', color: '#475569', textDecoration: 'none', padding: '6px 14px', border: '1px solid rgba(99,102,241,0.15)', borderRadius: '4px', transition: 'all 0.15s' }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.4)'; e.currentTarget.style.color = '#a5b4fc' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.15)'; e.currentTarget.style.color = '#475569' }}
+            className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-highlight-400 px-4 py-2 border border-brand-500/20 hover:border-highlight-400/50 rounded-lg transition-all hover:bg-highlight-400/10"
           >
             ♥ Patreon
           </a>
@@ -68,13 +57,13 @@ function ContactRow({ icon, label, href, value }: { icon: string; label: string;
       href={href}
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel="noopener noreferrer"
-      style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 14px', borderRadius: '4px', textDecoration: 'none', backgroundColor: 'rgba(15,23,42,0.5)', border: '1px solid rgba(99,102,241,0.1)', transition: 'all 0.15s' }}
-      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(34,211,238,0.3)'; e.currentTarget.style.backgroundColor = 'rgba(34,211,238,0.04)' }}
-      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.1)'; e.currentTarget.style.backgroundColor = 'rgba(15,23,42,0.5)' }}
+      className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-highlight-400/30 hover:bg-highlight-400/5 transition-all group"
     >
-      <span style={{ fontSize: '14px', width: '20px', textAlign: 'center' }}>{icon}</span>
-      <span style={{ fontSize: '11px', color: '#475569', width: '60px' }}>{label}</span>
-      <span style={{ fontSize: '12px', color: '#94a3b8' }}>{value}</span>
+      <div className="flex items-center gap-4 w-full sm:w-32 flex-shrink-0">
+        <span className="text-xl w-6 text-center text-slate-500 group-hover:text-highlight-400 transition-colors">{icon}</span>
+        <span className="text-xs font-mono uppercase tracking-wider text-slate-500 group-hover:text-slate-300 transition-colors">{label}</span>
+      </div>
+      <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors truncate">{value}</span>
     </a>
   )
 }

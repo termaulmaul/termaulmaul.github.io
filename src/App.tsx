@@ -17,9 +17,9 @@ const Fallback = () => <div style={{ minHeight: '80px' }} aria-hidden />
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-grid" style={{ backgroundColor: '#020617', color: '#e2e8f0' }}>
+    <div className="min-h-screen bg-slate-950 bg-grid text-slate-200 font-sans selection:bg-brand-500/30">
       <Navbar />
-      <main>
+      <main className="relative">
         <Hero />
         <About />
         <Suspense fallback={<Fallback />}>
@@ -33,12 +33,12 @@ export default function App() {
           <Contact />
         </Suspense>
       </main>
-      <footer style={{ borderTop: '1px solid rgba(99,102,241,0.1)', padding: '24px', textAlign: 'center', fontSize: '12px', color: '#475569' }}>
-        <span>Maulana Rafi Nurdiansyah</span>
-        <span style={{ margin: '0 8px', color: '#6366f1' }}>·</span>
+      <footer className="mt-20 border-t border-brand-500/10 py-8 text-center text-sm text-slate-500">
+        <span className="font-medium text-slate-400">Maulana Rafi Nurdiansyah</span>
+        <span className="mx-3 text-brand-500">·</span>
         <span>QA Automation Engineer · SDET</span>
-        <span style={{ margin: '0 8px', color: '#6366f1' }}>·</span>
-        <span>latency, correctness, and release confidence</span>
+        <span className="mx-3 text-brand-500">·</span>
+        <span className="italic">latency, correctness, and release confidence</span>
       </footer>
     </div>
   )
