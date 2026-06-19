@@ -22,7 +22,7 @@ export default function Certifications() {
         <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-alert-400/10 blur-[68px] pointer-events-none rounded-full" />
         
         <div className="shrink-0 flex flex-col items-center gap-[10px]">
-          <div className="w-[68px] h-[68px] flex items-center justify-center bg-alert-400/10 border border-alert-400/30 text-[26px] rounded-sm">
+          <div className="w-[68px] h-[68px] flex items-center justify-center bg-alert-400/10 border border-alert-400/30 text-[26px] rounded-xl">
             🎓
           </div>
           <span className="text-[10px] text-alert-400 font-bold font-mono tracking-widest">RED HAT</span>

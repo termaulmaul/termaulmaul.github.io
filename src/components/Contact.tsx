@@ -18,7 +18,7 @@ export default function Contact() {
             <span className="text-accent-400 font-bold mr-2">root@termaulmaul:~#</span>
             <span className="text-slate-200">cat contact.json</span>
           </p>
-          <pre className="bg-slate-950 rounded-sm p-[26px] text-[16px] text-accent-400 overflow-x-auto font-mono border border-slate-800">
+          <pre className="bg-slate-950 rounded-xl p-[26px] text-[16px] text-accent-400 overflow-x-auto font-mono border border-slate-800">
 {`{
   "email":    "${profile.email}",
   "github":   "termaulmaul",
@@ -45,7 +45,7 @@ function ContactRow({ icon, label, href, value }: { icon: string; label: string;
       href={href}
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel="noopener noreferrer"
-      className="flex items-center gap-[26px] p-[16px] bg-slate-900/50 border border-slate-800 hover:border-highlight-400/50 hover:bg-highlight-400/5 transition-all group font-mono"
+      className="flex items-center gap-[26px] p-[16px] bg-slate-900/50 border border-slate-800/60 hover:border-highlight-400/50 hover:bg-highlight-400/5 transition-all group font-mono rounded-2xl shadow-md"
     >
       <span className="text-[16px] text-highlight-400 font-bold">{icon}</span>
       <span className="text-[16px] uppercase tracking-widest text-slate-500 w-[100px] group-hover:text-slate-300">{label}</span>

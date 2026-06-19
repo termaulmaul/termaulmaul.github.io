@@ -36,7 +36,7 @@ export default function Projects() {
               rel="noopener noreferrer"
               className="mt-auto inline-flex items-center gap-[10px] text-[16px] font-mono text-slate-500 hover:text-highlight-400 transition-colors pt-[16px] border-t border-slate-800"
             >
-              <span className="text-[10px] px-[6px] py-[2px] bg-slate-800 rounded-sm">⌥</span>
+              <span className="text-[10px] px-[6px] py-[2px] bg-slate-800 rounded-xl">⌥</span>
               View on GitHub →
             </a>
           </div>

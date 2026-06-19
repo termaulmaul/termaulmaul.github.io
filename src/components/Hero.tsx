@@ -87,7 +87,7 @@ function CtaBtn({ href, label, primary }: { href: string; label: string; primary
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel="noopener noreferrer"
       className={`
-        inline-flex items-center justify-center px-[26px] py-[10px] text-[16px] font-bold transition-all
+        inline-flex items-center justify-center px-[26px] py-[10px] text-[16px] font-bold transition-all rounded-full shadow-lg
         ${primary 
           ? 'bg-accent-400 text-slate-950 hover:bg-accent-500 shadow-[0_0_26px_rgba(74,222,128,0.3)]' 
           : 'bg-slate-900 border border-slate-700 text-slate-300 hover:border-accent-400 hover:text-accent-400'

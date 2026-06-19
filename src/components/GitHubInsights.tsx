@@ -10,7 +10,7 @@ export default function GitHubInsights() {
       <h2 className="devops-title">GitHub Insights</h2>
 
       <div className="flex flex-wrap gap-[26px] justify-center items-start">
-        <div className="card-glass rounded-sm p-[10px] overflow-hidden leading-none shrink-0 max-w-full">
+        <div className="card-glass rounded-xl p-[10px] overflow-hidden leading-none shrink-0 max-w-full">
           <img
             src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true&background=030712`}
             alt="GitHub streak stats"
@@ -21,7 +21,7 @@ export default function GitHubInsights() {
           />
         </div>
 
-        <div className="card-glass rounded-sm p-[10px] overflow-hidden leading-none shrink-0 max-w-full">
+        <div className="card-glass rounded-xl p-[10px] overflow-hidden leading-none shrink-0 max-w-full">
           <img
             src={`https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${theme}&hide_border=true&langs_count=8&bg_color=030712`}
             alt="Top languages"

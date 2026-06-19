@@ -12,7 +12,7 @@ export default function TechStack() {
         {Object.entries(profile.techStack).map(([category, tools]) => (
           <div key={category} className="card-glass p-[26px]">
             <p className="mb-[16px] text-[10px] md:text-[16px] text-brand-400 tracking-[0.12em] uppercase font-mono font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-sm bg-brand-400"></span>
+              <span className="w-2 h-2 rounded-xl bg-brand-400"></span>
               {category}
             </p>
             <div className="flex flex-wrap gap-[10px]">
