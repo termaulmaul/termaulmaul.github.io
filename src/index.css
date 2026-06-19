@@ -4,7 +4,7 @@
   --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  /* Shadcn UI Theme Variables (Dark Mode default) */
+  /* Shadcn UI Theme Variables (Dark Mode default - Zinc) */
   --color-background: hsl(240 10% 3.9%);
   --color-foreground: hsl(0 0% 98%);
   
@@ -14,8 +14,8 @@
   --color-popover: hsl(240 10% 3.9%);
   --color-popover-foreground: hsl(0 0% 98%);
   
-  --color-primary: hsl(142.1 70.6% 45.3%);
-  --color-primary-foreground: hsl(144.9 80.4% 10%);
+  --color-primary: hsl(160 84% 39%); /* Emerald 500 for better contrast */
+  --color-primary-foreground: hsl(160 84% 10%);
   
   --color-secondary: hsl(240 3.7% 15.9%);
   --color-secondary-foreground: hsl(0 0% 98%);
@@ -31,7 +31,7 @@
   
   --color-border: hsl(240 3.7% 15.9%);
   --color-input: hsl(240 3.7% 15.9%);
-  --color-ring: hsl(142.1 70.6% 45.3%);
+  --color-ring: hsl(160 84% 39%);
 
   /* Keep legacy variables to prevent broken classes, but map them to Shadcn colors */
   --color-brand-400: var(--color-primary);
@@ -40,7 +40,7 @@
   --color-accent-500: var(--color-primary);
   --color-alert-400: var(--color-destructive);
   --color-warn-400: hsl(38 92% 50%);
-  --color-highlight-400: hsl(142.1 70.6% 45.3%);
+  --color-highlight-400: hsl(160 84% 39%);
 }
 
 @layer base {
@@ -54,7 +54,7 @@
   }
   
   ::selection {
-    background-color: hsl(142.1 70.6% 45.3% / 0.3);
+    background-color: hsl(160 84% 39% / 0.3);
     color: #fff;
   }
 }
@@ -62,8 +62,8 @@
 @layer utilities {
   .bg-grid {
     background-image:
-      linear-gradient(hsl(142.1 70.6% 45.3% / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(142.1 70.6% 45.3% / 0.05) 1px, transparent 1px);
+      linear-gradient(hsl(160 84% 39% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(160 84% 39% / 0.05) 1px, transparent 1px);
     background-size: 42px 42px; /* Golden ratio approximated */
     background-position: center top;
   }

@@ -43,14 +43,14 @@ function BoxGrid() {
       {boxes.map((box) => (
         <mesh key={box.id} position={box.position} geometry={boxGeometry}>
           <meshStandardMaterial 
-            color="#020617" 
+            color="#09090b" 
             metalness={0.9}
             roughness={0.1}
-            emissive="#22c55e"
+            emissive="#10b981"
             emissiveIntensity={0.05}
           />
           <lineSegments geometry={edgesGeometry}>
-            <lineBasicMaterial color="#4ade80" opacity={0.25} transparent />
+            <lineBasicMaterial color="#10b981" opacity={0.3} transparent />
           </lineSegments>
         </mesh>
       ))}
@@ -64,14 +64,14 @@ export default function Background3D() {
       <Canvas dpr={[1, 2]}>
         <OrthographicCamera 
           makeDefault 
-          position={[50, 40, 50]} 
+          position={[50, 50, 50]} 
           zoom={22}
           near={-100}
           far={1000}
         />
         <ambientLight intensity={0.4} />
         <directionalLight position={[10, 20, 10]} intensity={2} color="#6366f1" />
-        <pointLight position={[-10, 10, -10]} intensity={1.5} color="#4ade80" />
+        <pointLight position={[-10, 10, -10]} intensity={1.5} color="#10b981" />
         
         {/* Rotate group slightly for dynamic isometric feel */}
         <group position={[0, -6, 0]}>
@@ -79,8 +79,8 @@ export default function Background3D() {
         </group>
       </Canvas>
       {/* Vignette & fade out at the bottom */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#030712_70%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#09090b_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
     </div>
   )
 }
