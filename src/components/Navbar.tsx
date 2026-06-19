@@ -24,23 +24,23 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-lg border-b border-white/5 py-3 shadow-lg shadow-black/20' : 'bg-transparent py-5'}`}>
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 font-bold text-lg tracking-tight group text-slate-100 hover:text-white transition-colors">
-          <span className="text-accent-400 group-hover:scale-110 transition-transform">▶</span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md border-b border-accent-400/20 shadow-[0_4px_26px_rgba(34,197,94,0.05)] py-[16px]' : 'bg-transparent py-[26px]'}`}>
+      <div className="max-w-[1100px] mx-auto px-[26px] flex items-center justify-between">
+        <a href="#" className="flex items-center gap-[10px] font-bold text-[16px] text-white hover:text-accent-400 transition-colors font-mono">
+          <span className="text-accent-400">~/</span>
           <span>termaulmaul</span>
-          <span className="cursor-blink text-brand-400 font-mono">_</span>
+          <span className="cursor-blink text-brand-400">_</span>
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="hidden md:flex gap-[26px] items-center">
           {links.map(l => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-slate-400 hover:text-highlight-400 transition-colors tracking-wide"
+              className="text-[16px] font-mono text-slate-400 hover:text-accent-400 transition-colors"
             >
-              {l.label}
+              <span className="text-brand-500 opacity-50 mr-1">#</span>{l.label}
             </a>
           ))}
         </div>
@@ -48,29 +48,28 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-slate-400 hover:text-white transition-colors p-2 -mr-2"
+          className="md:hidden text-accent-400 hover:text-white transition-colors"
           aria-label="Menu"
         >
           {open ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           )}
         </button>
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[400px] border-b border-white/5 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="bg-slate-900/95 backdrop-blur-xl px-6 py-4 flex flex-col gap-4 shadow-2xl">
-          {links.map((l, i) => (
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[500px] border-b border-accent-400/20 opacity-100 bg-slate-950/95 backdrop-blur-xl' : 'max-h-0 opacity-0'}`}>
+        <div className="px-[26px] py-[26px] flex flex-col gap-[16px]">
+          {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center gap-3 py-1"
-              style={{ transitionDelay: `${i * 30}ms` }}
+              className="text-[16px] font-mono text-slate-300 hover:text-accent-400 transition-colors flex items-center gap-[10px]"
             >
-              <span className="text-accent-400 font-mono text-xs">›</span>
+              <span className="text-brand-500">{'>'}</span>
               {l.label}
             </a>
           ))}

@@ -1,22 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  /* Custom colors for our neon/dark mode theme */
+  /* DevOps / QA Theme Colors */
   --color-brand-400: #818cf8;
   --color-brand-500: #6366f1;
   --color-brand-600: #4f46e5;
-  --color-accent-400: #4ade80;
+  --color-accent-400: #4ade80; /* Terminal Green */
   --color-accent-500: #22c55e;
+  --color-alert-400: #ef4444; /* Error Red */
+  --color-warn-400: #fbbf24; /* Warn Yellow */
   --color-highlight-400: #22d3ee;
   
-  --color-bg-base: #030712; /* deeper dark */
-  --color-bg-card: rgba(15, 23, 42, 0.4);
-  --color-bg-card-hover: rgba(30, 41, 59, 0.6);
-  --color-border-card: rgba(99, 102, 241, 0.15);
-  --color-border-card-hover: rgba(99, 102, 241, 0.4);
+  --color-bg-base: #030712; 
 }
 
 @layer base {
@@ -26,11 +24,11 @@
   }
   
   body {
-    @apply bg-slate-950 text-slate-200 font-sans antialiased selection:bg-brand-500/30 selection:text-white;
+    @apply bg-slate-950 text-slate-300 font-sans antialiased selection:bg-accent-400/30 selection:text-white;
   }
   
   ::selection {
-    background-color: rgba(99, 102, 241, 0.3);
+    background-color: rgba(74, 222, 128, 0.3);
     color: #fff;
   }
 }
@@ -38,18 +36,27 @@
 @layer utilities {
   .bg-grid {
     background-image:
-      linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
+      linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+    background-size: 42px 42px; /* Golden ratio approximated */
     background-position: center top;
   }
 
   .card-glass {
-    @apply bg-slate-900/40 border border-brand-500/15 backdrop-blur-md transition-all duration-300;
+    @apply bg-slate-900/40 border border-slate-800 backdrop-blur-md transition-all duration-300 relative overflow-hidden;
   }
   
+  .card-glass::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-slate-800 transition-colors duration-300;
+  }
+
+  .card-glass:hover::before {
+    @apply bg-accent-400 shadow-[0_0_10px_rgba(74,222,128,0.5)];
+  }
+
   .card-glass:hover {
-    @apply border-brand-500/40 shadow-[0_0_30px_rgba(99,102,241,0.15)] -translate-y-1;
+    @apply border-slate-700 shadow-[0_0_26px_rgba(74,222,128,0.05)] -translate-y-1;
   }
 
   .cursor-blink {
@@ -61,20 +68,29 @@
   }
   
   .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-800/80 border border-brand-500/20 text-slate-300 transition-colors duration-200;
+    @apply inline-flex items-center px-[10px] py-[4px] rounded-sm text-[10px] font-mono font-medium bg-slate-800/80 border border-slate-700 text-slate-300 transition-colors duration-200;
   }
   
   .badge:hover {
-    @apply border-highlight-400/50 text-highlight-400 bg-slate-800;
+    @apply border-accent-400/50 text-accent-400 bg-slate-800;
   }
 
   .section-label {
-    @apply text-xs tracking-widest uppercase font-bold text-brand-500 mb-6 flex items-center gap-4;
+    @apply text-[16px] tracking-widest uppercase font-mono font-bold text-slate-500 mb-[26px] flex items-center gap-[16px];
   }
   
   .section-label::after {
     content: '';
-    @apply h-px bg-gradient-to-r from-brand-500/40 to-transparent flex-1;
+    @apply h-px bg-gradient-to-r from-slate-700 to-transparent flex-1;
+  }
+  
+  .devops-title {
+    @apply text-[26px] md:text-[42px] font-bold text-white mb-[42px] font-mono tracking-tight flex items-center gap-4;
+  }
+  
+  .devops-title::before {
+    content: '>';
+    @apply text-accent-400 opacity-70;
   }
 }
 
@@ -84,20 +100,20 @@
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(26px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { 
-  width: 8px; 
+  width: 10px; 
 }
 ::-webkit-scrollbar-track { 
   @apply bg-slate-950; 
 }
 ::-webkit-scrollbar-thumb { 
-  @apply bg-slate-800 rounded-full border-2 border-slate-950; 
+  @apply bg-slate-800 border-2 border-slate-950; 
 }
 ::-webkit-scrollbar-thumb:hover { 
-  @apply bg-slate-700; 
+  @apply bg-accent-400/50; 
 }

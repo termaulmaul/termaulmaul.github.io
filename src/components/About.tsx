@@ -2,34 +2,30 @@ import { profile } from '../data/profile'
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 max-w-6xl mx-auto scroll-mt-20">
-      <div className="section-label">
-        <span className="text-brand-500 mr-2">01.</span> About Me
-      </div>
+    <section id="about" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">01.</span> Whoami
+      </p>
+      <h2 className="devops-title">About Me</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-        {profile.about.map((item, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[26px]">
+        {profile.about.map((item) => (
           <div 
             key={item.label} 
-            className="card-glass rounded-xl p-6 flex flex-col gap-2 relative overflow-hidden group"
-            style={{ animationDelay: `${i * 100}ms` }}
+            className="card-glass p-[26px] flex flex-col gap-[10px]"
           >
-            {/* Subtle highlight */}
-            <div className="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 blur-xl rounded-full group-hover:bg-brand-400/20 transition-colors" />
-            
-            <span className="text-xs font-mono text-brand-400 tracking-wider uppercase font-semibold">
+            <span className="text-[10px] font-mono text-highlight-400 tracking-[0.12em] uppercase font-bold">
               {item.label}
             </span>
-            <span className="text-slate-200 text-sm md:text-base font-medium leading-relaxed">
+            <span className="text-white text-[16px] font-medium leading-relaxed font-sans">
               {item.value}
             </span>
           </div>
         ))}
       </div>
 
-      <div className="card-glass rounded-xl p-8 mt-6 border-l-4 border-l-accent-400 relative overflow-hidden">
-        <div className="absolute -left-10 -top-10 w-32 h-32 bg-accent-500/10 blur-2xl rounded-full" />
-        <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-mono relative z-10">
+      <div className="card-glass p-[42px] mt-[42px] border-l-4 border-l-accent-400">
+        <p className="text-[16px] text-slate-300 leading-relaxed font-mono">
           <span className="text-accent-400 font-bold mr-2">/*</span>
           I focus on building reliable software quality workflows: automated regression coverage, API validation, performance testing, release confidence, and production-aware debugging. My work sits at the intersection of QA engineering, systems reliability, and observability.
           <span className="text-accent-400 font-bold ml-2">*/</span>

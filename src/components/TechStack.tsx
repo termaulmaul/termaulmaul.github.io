@@ -2,21 +2,24 @@ import { profile } from '../data/profile'
 
 export default function TechStack() {
   return (
-    <section id="stack" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// toolchain</p>
-      <h2 style={{ margin: '0 0 40px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        Core Tech Stack
-      </h2>
+    <section id="stack" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">03.</span> Toolchain
+      </p>
+      <h2 className="devops-title">Core Tech Stack</h2>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div className="flex flex-col gap-[26px]">
         {Object.entries(profile.techStack).map(([category, tools]) => (
-          <div key={category} className="card-glass" style={{ borderRadius: '6px', padding: '20px 24px' }}>
-            <p style={{ margin: '0 0 12px', fontSize: '11px', color: '#6366f1', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600 }}>
+          <div key={category} className="card-glass p-[26px]">
+            <p className="mb-[16px] text-[10px] md:text-[16px] text-brand-400 tracking-[0.12em] uppercase font-mono font-bold flex items-center gap-2">
+              <span className="w-2 h-2 rounded-sm bg-brand-400"></span>
               {category}
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            <div className="flex flex-wrap gap-[10px]">
               {tools.map(tool => (
-                <span key={tool} className="badge">{tool}</span>
+                <span key={tool} className="badge">
+                  <span className="opacity-50 mr-1">#</span>{tool}
+                </span>
               ))}
             </div>
           </div>

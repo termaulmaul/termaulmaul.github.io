@@ -2,29 +2,29 @@ import { profile } from '../data/profile'
 
 export default function DomainExperience() {
   return (
-    <section id="domains" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// domain depth</p>
-      <h2 style={{ margin: '0 0 40px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        Domain Experience
-      </h2>
+    <section id="domains" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">05.</span> Domain Depth
+      </p>
+      <h2 className="devops-title">Domain Experience</h2>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[26px]">
         {/* Capital Markets */}
-        <div className="card-glass" style={{ borderRadius: '8px', padding: '28px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-            <span style={{ fontSize: '18px' }}>📈</span>
+        <div className="card-glass p-[26px]">
+          <div className="flex items-center gap-[16px] mb-[26px]">
+            <span className="text-[26px] p-[10px] bg-slate-800/80 border border-slate-700 text-highlight-400 rounded-sm">📈</span>
             <div>
-              <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 600, color: '#e2e8f0', fontFamily: 'inherit' }}>Capital Markets & FinTech</h3>
-              <p style={{ margin: 0, fontSize: '11px', color: '#6366f1' }}>trading · reliability · correctness</p>
+              <h3 className="m-0 text-[16px] font-bold text-white font-mono">Capital Markets & FinTech</h3>
+              <p className="m-0 text-[10px] md:text-[16px] text-highlight-400 font-mono mt-1">trading · reliability · correctness</p>
             </div>
           </div>
-          <p style={{ margin: '0 0 16px', fontSize: '12px', color: '#64748b', lineHeight: 1.6 }}>
+          <p className="mb-[26px] text-[16px] text-slate-400 leading-relaxed border-l-2 border-slate-800 pl-[16px]">
             Quality workflows for trading and financial systems where reliability, timing, and correctness matter.
           </p>
-          <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <ul className="m-0 p-0 list-none flex flex-col gap-[10px]">
             {profile.capitalMarkets.map(item => (
-              <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '12px', color: '#94a3b8' }}>
-                <span style={{ color: '#22d3ee', flexShrink: 0, marginTop: '1px' }}>›</span>
+              <li key={item} className="flex items-start gap-[10px] text-[16px] text-slate-300">
+                <span className="text-highlight-400 mt-[2px] font-bold">[{'>'}]</span>
                 {item}
               </li>
             ))}
@@ -32,30 +32,30 @@ export default function DomainExperience() {
         </div>
 
         {/* Healthcare */}
-        <div className="card-glass" style={{ borderRadius: '8px', padding: '28px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-            <span style={{ fontSize: '18px' }}>🏥</span>
+        <div className="card-glass p-[26px]">
+          <div className="flex items-center gap-[16px] mb-[26px]">
+            <span className="text-[26px] p-[10px] bg-slate-800/80 border border-slate-700 text-accent-400 rounded-sm">🏥</span>
             <div>
-              <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 600, color: '#e2e8f0', fontFamily: 'inherit' }}>Healthcare Systems</h3>
-              <p style={{ margin: 0, fontSize: '11px', color: '#6366f1' }}>PT. Anugerah Mitrautama Sejahtera</p>
+              <h3 className="m-0 text-[16px] font-bold text-white font-mono">Healthcare Systems</h3>
+              <p className="m-0 text-[10px] md:text-[16px] text-accent-400 font-mono mt-1">PT. Anugerah Mitrautama Sejahtera</p>
             </div>
           </div>
-          <p style={{ margin: '0 0 16px', fontSize: '12px', color: '#64748b', lineHeight: 1.6 }}>
+          <p className="mb-[26px] text-[16px] text-slate-400 leading-relaxed border-l-2 border-slate-800 pl-[16px]">
             Implementation and operational readiness for healthcare technology systems across Indonesia.
           </p>
-          <ul style={{ margin: '0 0 20px', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <ul className="mb-[26px] p-0 list-none flex flex-col gap-[10px]">
             {profile.healthcare.map(item => (
-              <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '12px', color: '#94a3b8' }}>
-                <span style={{ color: '#4ade80', flexShrink: 0, marginTop: '1px' }}>›</span>
+              <li key={item} className="flex items-start gap-[10px] text-[16px] text-slate-300">
+                <span className="text-accent-400 mt-[2px] font-bold">[{'>'}]</span>
                 {item}
               </li>
             ))}
           </ul>
 
-          <p style={{ margin: '0 0 10px', fontSize: '11px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Selected Deployments</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+          <p className="m-0 mb-[10px] text-[10px] text-slate-500 uppercase tracking-[0.1em] font-mono">Selected Deployments</p>
+          <div className="flex flex-wrap gap-[10px]">
             {profile.healthcareRefs.map(ref => (
-              <span key={ref} style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '3px', backgroundColor: 'rgba(74,222,128,0.05)', border: '1px solid rgba(74,222,128,0.15)', color: '#64748b' }}>
+              <span key={ref} className="text-[10px] px-[10px] py-[4px] rounded-sm bg-accent-400/10 border border-accent-400/20 text-accent-400 font-mono">
                 {ref}
               </span>
             ))}

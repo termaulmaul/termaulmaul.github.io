@@ -3,44 +3,30 @@ export default function GitHubInsights() {
   const theme = 'tokyonight'
 
   return (
-    <section id="github" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// activity</p>
-      <h2 style={{ margin: '0 0 40px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        GitHub Insights
-      </h2>
+    <section id="github" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">07.</span> Activity Log
+      </p>
+      <h2 className="devops-title">GitHub Insights</h2>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', alignItems: 'flex-start' }}>
-        <div style={{
-          borderRadius: '8px',
-          border: '1px solid rgba(99,102,241,0.15)',
-          overflow: 'hidden',
-          lineHeight: 0,
-          flexShrink: 0,
-          maxWidth: '100%',
-        }}>
+      <div className="flex flex-wrap gap-[26px] justify-center items-start">
+        <div className="card-glass rounded-sm p-[10px] overflow-hidden leading-none shrink-0 max-w-full">
           <img
-            src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true`}
+            src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true&background=030712`}
             alt="GitHub streak stats"
             width={495}
-            style={{ display: 'block', width: '100%', height: 'auto', maxWidth: '495px' }}
+            className="block w-full h-auto max-w-[495px] opacity-90 hover:opacity-100 transition-opacity"
             loading="lazy"
             decoding="async"
           />
         </div>
 
-        <div style={{
-          borderRadius: '8px',
-          border: '1px solid rgba(99,102,241,0.15)',
-          overflow: 'hidden',
-          lineHeight: 0,
-          flexShrink: 0,
-          maxWidth: '100%',
-        }}>
+        <div className="card-glass rounded-sm p-[10px] overflow-hidden leading-none shrink-0 max-w-full">
           <img
-            src={`https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${theme}&hide_border=true&langs_count=8`}
+            src={`https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${theme}&hide_border=true&langs_count=8&bg_color=030712`}
             alt="Top languages"
             width={495}
-            style={{ display: 'block', width: '100%', height: 'auto', maxWidth: '495px' }}
+            className="block w-full h-auto max-w-[495px] opacity-90 hover:opacity-100 transition-opacity"
             loading="lazy"
             decoding="async"
           />

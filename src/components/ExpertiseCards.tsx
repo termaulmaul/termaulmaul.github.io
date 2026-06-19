@@ -2,24 +2,23 @@ import { profile } from '../data/profile'
 
 export default function ExpertiseCards() {
   return (
-    <section id="expertise" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// capabilities</p>
-      <h2 style={{ margin: '0 0 40px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        Expertise
-      </h2>
+    <section id="expertise" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">04.</span> Capabilities
+      </p>
+      <h2 className="devops-title">Expertise</h2>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px]">
         {profile.expertise.map(card => (
           <div
             key={card.title}
-            className="card-glass"
-            style={{ borderRadius: '8px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '10px' }}
+            className="card-glass p-[26px] flex flex-col gap-[16px]"
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontSize: '20px' }}>{card.icon}</span>
-              <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 600, color: '#e2e8f0', fontFamily: 'inherit' }}>{card.title}</h3>
+            <div className="flex items-center gap-[10px] border-b border-slate-800 pb-[10px]">
+              <span className="text-[26px] text-accent-400 bg-accent-400/10 p-[10px] rounded-sm border border-accent-400/20">{card.icon}</span>
+              <h3 className="m-0 text-[16px] font-bold text-white font-mono">{card.title}</h3>
             </div>
-            <p style={{ margin: 0, fontSize: '12px', color: '#64748b', lineHeight: 1.6 }}>{card.desc}</p>
+            <p className="m-0 text-[16px] text-slate-400 leading-relaxed font-sans">{card.desc}</p>
           </div>
         ))}
       </div>

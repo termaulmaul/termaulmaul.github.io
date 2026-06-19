@@ -2,27 +2,27 @@ import { profile } from '../data/profile'
 
 export default function CurrentFocus() {
   return (
-    <section id="focus" className="py-24 px-6 max-w-6xl mx-auto scroll-mt-20">
-      <div className="section-label">
-        <span className="text-brand-500 mr-2">02.</span> Current Focus
-      </div>
+    <section id="focus" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">02.</span> Current Pipeline
+      </p>
+      <h2 className="devops-title">Current Focus</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px]">
         {profile.currentFocus.map((item, i) => (
           <div
             key={i}
-            className="card-glass rounded-xl p-5 flex items-start gap-4 group"
-            style={{ animationDelay: `${i * 100}ms` }}
+            className="card-glass p-[26px] flex items-start gap-[16px]"
           >
-            <span className="text-accent-400 font-mono mt-1 group-hover:translate-x-1 transition-transform">›</span>
-            <span className="text-sm md:text-base text-slate-300 font-medium leading-relaxed">{item}</span>
+            <span className="text-accent-400 font-mono mt-[2px] font-bold">[{'>'}]</span>
+            <span className="text-[16px] text-slate-300 font-medium leading-relaxed">{item}</span>
           </div>
         ))}
       </div>
 
-      <div className="mt-12 p-8 border-l-2 border-brand-500 bg-brand-500/5 rounded-r-xl relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        <p className="text-sm md:text-base text-slate-400 italic font-medium relative z-10">
+      <div className="mt-[42px] p-[26px] bg-slate-900 border border-slate-800 border-l-[4px] border-l-alert-400 relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-[10px] text-[10px] font-mono text-alert-400 font-bold opacity-50 uppercase">Alert</div>
+        <p className="text-[16px] text-slate-400 font-mono italic">
           "quality gates before production risk — latency, correctness, and release confidence"
         </p>
       </div>

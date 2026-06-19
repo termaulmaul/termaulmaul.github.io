@@ -10,170 +10,75 @@ export default function Certifications() {
   }))
 
   return (
-    <section id="certs" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// credentials</p>
-      <h2 style={{ margin: '0 0 40px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        Certifications
-      </h2>
+    <section id="certs" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">09.</span> Credentials
+      </p>
+      <h2 className="devops-title">Certifications</h2>
 
       {/* RHCSA hero card */}
-      <div
-        style={{
-          marginBottom: '48px',
-          borderRadius: '10px',
-          padding: '2px',
-          background: 'linear-gradient(135deg, rgba(238,0,0,0.5) 0%, rgba(99,102,241,0.3) 50%, rgba(238,0,0,0.2) 100%)',
-          boxShadow: '0 0 40px rgba(238,0,0,0.08), 0 0 80px rgba(99,102,241,0.05)',
-        }}
-      >
-        <div style={{
-          borderRadius: '9px',
-          padding: 'clamp(24px, 4vw, 40px)',
-          background: 'linear-gradient(135deg, rgba(10,4,4,0.97) 0%, rgba(15,10,30,0.97) 100%)',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '28px',
-          alignItems: 'flex-start',
-        }}>
-          {/* Left: icon + issuer */}
-          <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', minWidth: '80px' }}>
-            <div style={{
-              width: '72px',
-              height: '72px',
-              borderRadius: '10px',
-              background: 'rgba(238,0,0,0.1)',
-              border: '1px solid rgba(238,0,0,0.3)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '28px',
-            }}>
-              🎓
-            </div>
-            <span style={{ fontSize: '10px', color: '#ee0000', fontWeight: 700, letterSpacing: '0.1em', textAlign: 'center' }}>RED HAT</span>
+      <div className="card-glass p-[26px] md:p-[42px] mb-[68px] border-l-[4px] border-l-alert-400 flex flex-col md:flex-row gap-[26px] items-start relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-alert-400/10 blur-[68px] pointer-events-none rounded-full" />
+        
+        <div className="shrink-0 flex flex-col items-center gap-[10px]">
+          <div className="w-[68px] h-[68px] flex items-center justify-center bg-alert-400/10 border border-alert-400/30 text-[26px] rounded-sm">
+            🎓
           </div>
+          <span className="text-[10px] text-alert-400 font-bold font-mono tracking-widest">RED HAT</span>
+        </div>
 
-          {/* Center: title + desc */}
-          <div style={{ flex: 1, minWidth: '220px' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-              <h3 style={{ margin: 0, fontSize: 'clamp(14px, 2.5vw, 18px)', fontWeight: 700, color: '#f8fafc', fontFamily: 'inherit', letterSpacing: '-0.3px' }}>
-                {featured.title}
-              </h3>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '5px',
-                padding: '3px 10px',
-                borderRadius: '4px',
-                fontSize: '11px',
-                fontWeight: 700,
-                backgroundColor: 'rgba(238,0,0,0.12)',
-                border: '1px solid rgba(238,0,0,0.4)',
-                color: '#fca5a5',
-                letterSpacing: '0.05em',
-                whiteSpace: 'nowrap',
-              }}>
-                ✦ {featured.scoreLabel} · {featured.score}
-              </span>
-            </div>
-
-            <p style={{ margin: '0 0 16px', fontSize: '12px', color: '#94a3b8', lineHeight: 1.7, maxWidth: '600px' }}>
-              {featured.desc}
-            </p>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
-              {featured.tags.map(tag => (
-                <span key={tag} style={{
-                  padding: '2px 8px',
-                  borderRadius: '3px',
-                  fontSize: '10px',
-                  fontWeight: 500,
-                  backgroundColor: 'rgba(238,0,0,0.06)',
-                  border: '1px solid rgba(238,0,0,0.2)',
-                  color: '#fca5a5',
-                }}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <a
-              href={featured.credly}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '8px 16px',
-                borderRadius: '4px',
-                fontSize: '11px',
-                fontWeight: 600,
-                textDecoration: 'none',
-                backgroundColor: 'rgba(238,0,0,0.1)',
-                border: '1px solid rgba(238,0,0,0.35)',
-                color: '#fca5a5',
-                transition: 'all 0.15s',
-                fontFamily: 'inherit',
-                letterSpacing: '0.05em',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.backgroundColor = 'rgba(238,0,0,0.2)'
-                e.currentTarget.style.borderColor = 'rgba(238,0,0,0.6)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.backgroundColor = 'rgba(238,0,0,0.1)'
-                e.currentTarget.style.borderColor = 'rgba(238,0,0,0.35)'
-              }}
-            >
-              ✦ Verify on Credly →
-            </a>
-          </div>
-
-          {/* Right: score stat */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px 24px',
-            borderRadius: '8px',
-            background: 'rgba(238,0,0,0.05)',
-            border: '1px solid rgba(238,0,0,0.15)',
-            textAlign: 'center',
-            minWidth: '100px',
-          }}>
-            <span style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 800, color: '#ee0000', letterSpacing: '-1px', lineHeight: 1 }}>
-              300
+        <div className="flex-1 relative z-10">
+          <div className="flex flex-wrap items-center gap-[16px] mb-[10px]">
+            <h3 className="text-[26px] font-bold text-white font-mono leading-none m-0">{featured.title}</h3>
+            <span className="px-[10px] py-[4px] bg-alert-400/10 border border-alert-400/30 text-alert-400 text-[10px] font-bold font-mono uppercase tracking-[0.1em]">
+              {featured.scoreLabel} · {featured.score}
             </span>
-            <span style={{ fontSize: '10px', color: '#fca5a5', letterSpacing: '0.1em', marginTop: '4px' }}>/ 300</span>
-            <span style={{ fontSize: '9px', color: '#64748b', marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-              Exam Score
-            </span>
-            <div style={{ marginTop: '8px', width: '40px', height: '2px', background: 'linear-gradient(90deg, #ee0000, transparent)' }} />
-            <span style={{ fontSize: '9px', color: '#94a3b8', marginTop: '6px' }}>EX200</span>
           </div>
+          
+          <p className="text-[16px] text-slate-300 mb-[26px] leading-relaxed max-w-[600px] border-l-2 border-slate-800 pl-[16px]">
+            {featured.desc}
+          </p>
+
+          <div className="flex flex-wrap gap-[10px] mb-[26px]">
+            {featured.tags.map(tag => (
+              <span key={tag} className="badge !border-alert-400/30 !text-alert-400">{tag}</span>
+            ))}
+          </div>
+
+          <a href={featured.credly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-[10px] text-[10px] md:text-[16px] font-mono text-alert-400 hover:text-white transition-colors border-b border-alert-400/30 pb-1">
+            [ Verify on Credly ]
+          </a>
+        </div>
+
+        <div className="shrink-0 flex flex-col items-center justify-center p-[26px] bg-slate-900 border border-alert-400/20 text-center w-full md:w-auto relative z-10">
+          <span className="text-[42px] font-bold text-alert-400 leading-none font-mono tracking-tighter">300</span>
+          <span className="text-[10px] text-alert-400/70 tracking-[0.1em] mt-1 font-mono">/ 300</span>
+          <span className="text-[10px] text-slate-500 uppercase tracking-widest mt-[10px] font-mono">Exam Score</span>
+          <div className="w-[42px] h-[2px] bg-alert-400 mt-[10px]" />
         </div>
       </div>
 
       {/* Grouped remaining certs */}
-      {grouped.filter(g => g.certs.length > 0).map(group => (
-        <div key={group.name} style={{ marginBottom: '40px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-            <span style={{ fontSize: '11px', color: '#6366f1', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600 }}>
-              {group.name}
-            </span>
-            <div style={{ flex: 1, height: '1px', background: 'rgba(99,102,241,0.15)' }} />
-            <span style={{ fontSize: '10px', color: '#334155' }}>{group.certs.length} certs</span>
-          </div>
+      <div className="flex flex-col gap-[42px]">
+        {grouped.filter(g => g.certs.length > 0).map(group => (
+          <div key={group.name}>
+            <div className="flex items-center gap-[16px] mb-[26px]">
+              <span className="text-[16px] text-brand-400 font-bold font-mono tracking-widest uppercase">
+                {group.name}
+              </span>
+              <div className="flex-1 h-px bg-slate-800" />
+              <span className="text-[10px] text-slate-500 font-mono">[{group.certs.length} certs]</span>
+            </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
-            {group.certs.map(cert => (
-              <CertCard key={cert.id} cert={cert} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px]">
+              {group.certs.map(cert => (
+                <CertCard key={cert.id} cert={cert} />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   )
 }
@@ -182,43 +87,25 @@ type Cert = typeof profile.certifications[number]
 
 function CertCard({ cert }: { cert: Cert }) {
   return (
-    <div
-      className="card-glass"
-      style={{ borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}
-    >
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-            <span style={{
-              fontSize: '9px',
-              padding: '2px 6px',
-              borderRadius: '3px',
-              backgroundColor: 'rgba(31,112,193,0.1)',
-              border: '1px solid rgba(31,112,193,0.25)',
-              color: '#93c5fd',
-              fontWeight: 600,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-            }}>
-              {cert.issuer}
-            </span>
-          </div>
-          <h4 style={{ margin: 0, fontSize: '12px', fontWeight: 600, color: '#e2e8f0', fontFamily: 'inherit', lineHeight: 1.45 }}>
-            {cert.title}
-          </h4>
-        </div>
+    <div className="card-glass p-[26px] flex flex-col gap-[16px] border-l-[2px] border-l-brand-500">
+      <div className="flex-1">
+        <span className="inline-block mb-[10px] text-[10px] px-[6px] py-[2px] bg-brand-500/10 border border-brand-500/30 text-brand-400 font-bold tracking-widest font-mono uppercase">
+          {cert.issuer}
+        </span>
+        <h4 className="text-[16px] font-bold text-white font-mono leading-snug m-0 mb-[10px]">
+          {cert.title}
+        </h4>
+        <p className="text-[16px] text-slate-400 leading-relaxed font-sans m-0">
+          {cert.desc}
+        </p>
       </div>
 
-      <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: 1.6, flex: 1 }}>
-        {cert.desc}
-      </p>
-
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
-        {cert.tags.slice(0, 4).map(tag => (
-          <span key={tag} className="badge" style={{ fontSize: '10px', padding: '1px 7px' }}>{tag}</span>
+      <div className="flex flex-wrap gap-[6px]">
+        {cert.tags.slice(0, 3).map(tag => (
+          <span key={tag} className="badge text-[10px]">{tag}</span>
         ))}
-        {cert.tags.length > 4 && (
-          <span style={{ fontSize: '10px', color: '#334155', padding: '1px 4px' }}>+{cert.tags.length - 4}</span>
+        {cert.tags.length > 3 && (
+          <span className="text-[10px] text-slate-500 font-mono flex items-center">+{cert.tags.length - 3}</span>
         )}
       </div>
 
@@ -226,22 +113,9 @@ function CertCard({ cert }: { cert: Cert }) {
         href={cert.credly}
         target="_blank"
         rel="noopener noreferrer"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '5px',
-          fontSize: '10px',
-          color: '#475569',
-          textDecoration: 'none',
-          paddingTop: '8px',
-          borderTop: '1px solid rgba(99,102,241,0.1)',
-          transition: 'color 0.15s',
-          fontFamily: 'inherit',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.color = '#22d3ee')}
-        onMouseLeave={e => (e.currentTarget.style.color = '#475569')}
+        className="mt-auto pt-[16px] border-t border-slate-800 text-[10px] font-mono text-slate-500 hover:text-highlight-400 transition-colors flex items-center gap-[10px]"
       >
-        ✦ Verify on Credly →
+        <span>[ Verify ]</span>
       </a>
     </div>
   )

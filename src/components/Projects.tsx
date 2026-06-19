@@ -2,29 +2,29 @@ import { profile } from '../data/profile'
 
 export default function Projects() {
   return (
-    <section id="projects" style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-      <p className="section-label" style={{ marginBottom: '8px' }}>// work</p>
-      <h2 style={{ margin: '0 0 40px', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: '#f1f5f9', fontFamily: 'inherit' }}>
-        Projects
-      </h2>
+    <section id="projects" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
+      <p className="section-label">
+        <span className="text-accent-400">06.</span> Work
+      </p>
+      <h2 className="devops-title">Projects</h2>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px]">
         {profile.projects.map(project => (
           <div
             key={project.title}
-            className="card-glass"
-            style={{ borderRadius: '8px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}
+            className="card-glass p-[26px] flex flex-col gap-[16px]"
           >
             <div>
-              <h3 style={{ margin: '0 0 8px', fontSize: '14px', fontWeight: 600, color: '#e2e8f0', fontFamily: 'inherit' }}>
+              <h3 className="m-0 mb-[10px] text-[16px] font-bold text-white font-mono flex items-center gap-[10px]">
+                <span className="text-brand-400">◆</span>
                 {project.title}
               </h3>
-              <p style={{ margin: 0, fontSize: '12px', color: '#64748b', lineHeight: 1.6 }}>
+              <p className="m-0 text-[16px] text-slate-400 leading-relaxed font-sans border-l-2 border-slate-800 pl-[16px]">
                 {project.impact}
               </p>
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            <div className="flex flex-wrap gap-[10px] mt-[10px]">
               {project.stack.map(s => (
                 <span key={s} className="badge">{s}</span>
               ))}
@@ -34,20 +34,10 @@ export default function Projects() {
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                marginTop: 'auto',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontSize: '11px',
-                color: '#475569',
-                textDecoration: 'none',
-                transition: 'color 0.15s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#22d3ee')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#475569')}
+              className="mt-auto inline-flex items-center gap-[10px] text-[16px] font-mono text-slate-500 hover:text-highlight-400 transition-colors pt-[16px] border-t border-slate-800"
             >
-              <span>⌥</span> View on GitHub →
+              <span className="text-[10px] px-[6px] py-[2px] bg-slate-800 rounded-sm">⌥</span>
+              View on GitHub →
             </a>
           </div>
         ))}
