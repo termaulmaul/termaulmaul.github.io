@@ -1,4 +1,5 @@
 import { profile } from '../data/profile'
+import Background3D from './Background3D'
 
 export default function Hero() {
   return (
@@ -6,6 +7,9 @@ export default function Hero() {
       id="hero"
       className="min-h-screen flex items-center justify-center pt-[110px] pb-[68px] px-[26px] relative"
     >
+      {/* 3D Isometric Motion Graphic */}
+      <Background3D />
+
       <div className="max-w-[800px] w-full relative z-10 flex flex-col items-center">
         {/* Terminal block */}
         <div className="card-glass w-full p-[26px] md:p-[42px] mb-[42px] border-t-[4px] border-t-accent-400">
