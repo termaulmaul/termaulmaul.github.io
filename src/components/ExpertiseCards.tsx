@@ -14,11 +14,11 @@ export default function ExpertiseCards() {
             key={card.title}
             className="card-glass p-[26px] flex flex-col gap-[16px]"
           >
-            <div className="flex items-center gap-[10px] border-b border-slate-800 pb-[10px]">
+            <div className="flex items-center gap-[10px] border-b border-border pb-[10px]">
               <span className="text-[26px] text-accent-400 bg-accent-400/10 p-[10px] rounded-xl border border-accent-400/20">{card.icon}</span>
-              <h3 className="m-0 text-[16px] font-bold text-white font-mono">{card.title}</h3>
+              <h3 className="m-0 text-[16px] font-bold text-foreground font-mono">{card.title}</h3>
             </div>
-            <p className="m-0 text-[16px] text-slate-400 leading-relaxed font-sans">{card.desc}</p>
+            <p className="m-0 text-[16px] text-muted-foreground leading-relaxed font-sans">{card.desc}</p>
           </div>
         ))}
       </div>

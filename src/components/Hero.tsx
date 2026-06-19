@@ -15,28 +15,28 @@ export default function Hero() {
         <div className="card-glass w-full p-[26px] md:p-[42px] mb-[42px] border-t-[4px] border-t-accent-400">
           
           {/* Terminal Header */}
-          <div className="flex items-center gap-[10px] mb-[26px] border-b border-slate-800 pb-[16px]">
+          <div className="flex items-center gap-[10px] mb-[26px] border-b border-border pb-[16px]">
             <div className="flex gap-[10px]">
-              <div className="w-[10px] h-[10px] rounded-full bg-alert-400" />
-              <div className="w-[10px] h-[10px] rounded-full bg-warn-400" />
-              <div className="w-[10px] h-[10px] rounded-full bg-accent-400" />
+              <div className="w-[10px] h-[10px] rounded-md bg-alert-400" />
+              <div className="w-[10px] h-[10px] rounded-md bg-warn-400" />
+              <div className="w-[10px] h-[10px] rounded-md bg-accent-400" />
             </div>
-            <span className="ml-[16px] font-mono text-[10px] text-slate-500 uppercase tracking-[0.1em]">bash - 80x24</span>
+            <span className="ml-[16px] font-mono text-[10px] text-muted-foreground uppercase tracking-[0.1em]">bash - 80x24</span>
           </div>
 
           <div className="font-mono text-[16px] leading-relaxed space-y-[26px]">
             <div>
-              <p className="mb-[10px] text-slate-300">
+              <p className="mb-[10px] text-muted-foreground">
                 <span className="text-accent-400 font-bold mr-2">termaulmaul@macbook-pro:~$</span>
                 whoami
               </p>
-              <h1 className="text-[42px] md:text-[68px] font-bold text-white tracking-tight leading-none drop-shadow-[0_0_10px_rgba(74,222,128,0.2)]">
+              <h1 className="text-[42px] md:text-[68px] font-bold text-foreground tracking-tight leading-none drop-shadow-[0_0_10px_rgba(74,222,128,0.2)]">
                 {profile.name}
               </h1>
             </div>
 
             <div>
-              <p className="mb-[10px] text-slate-300">
+              <p className="mb-[10px] text-muted-foreground">
                 <span className="text-accent-400 font-bold mr-2">termaulmaul@macbook-pro:~$</span>
                 cat current_role.txt
               </p>
@@ -44,18 +44,18 @@ export default function Hero() {
                 <p className="text-[26px] text-brand-400 font-bold tracking-tight">
                   {profile.title}
                 </p>
-                <p className="text-[16px] text-slate-400 mt-[10px]">
+                <p className="text-[16px] text-muted-foreground mt-[10px]">
                   {profile.subtitle}
                 </p>
               </div>
             </div>
 
             <div>
-              <p className="mb-[10px] text-slate-300">
+              <p className="mb-[10px] text-muted-foreground">
                 <span className="text-accent-400 font-bold mr-2">termaulmaul@macbook-pro:~$</span>
                 cat ./mission.sh
               </p>
-              <p className="text-[16px] text-slate-300 max-w-[600px] font-sans">
+              <p className="text-[16px] text-muted-foreground max-w-[600px] font-sans">
                 {profile.intro}
               </p>
             </div>
@@ -91,10 +91,10 @@ function CtaBtn({ href, label, primary }: { href: string; label: string; primary
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel="noopener noreferrer"
       className={`
-        inline-flex items-center justify-center px-[26px] py-[10px] text-[16px] font-bold transition-all rounded-full shadow-lg
+        inline-flex items-center justify-center px-[26px] py-[10px] text-[16px] font-bold transition-all rounded-md shadow-lg
         ${primary 
-          ? 'bg-accent-400 text-slate-950 hover:bg-accent-500 shadow-[0_0_26px_rgba(74,222,128,0.3)]' 
-          : 'bg-slate-900 border border-slate-700 text-slate-300 hover:border-accent-400 hover:text-accent-400'
+          ? 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm' 
+          : 'bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground shadow-sm'
         }
       `}
     >

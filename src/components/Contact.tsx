@@ -8,7 +8,7 @@ export default function Contact() {
       </p>
       <h2 className="devops-title">Connection ESTABLISHED</h2>
       
-      <p className="text-slate-400 text-[16px] max-w-[600px] mb-[42px] font-sans">
+      <p className="text-muted-foreground text-[16px] max-w-[600px] mb-[42px] font-sans">
         Open to conversations around QA automation, SDET practices, fintech systems, observability, and AI/ML quality workflows.
       </p>
 
@@ -18,7 +18,7 @@ export default function Contact() {
             <span className="text-accent-400 font-bold mr-2">root@termaulmaul:~#</span>
             <span className="text-slate-200">cat contact.json</span>
           </p>
-          <pre className="bg-slate-950 rounded-xl p-[26px] text-[16px] text-accent-400 overflow-x-auto font-mono border border-slate-800">
+          <pre className="bg-background rounded-xl p-[26px] text-[16px] text-accent-400 overflow-x-auto font-mono border border-border">
 {`{
   "email":    "${profile.email}",
   "github":   "termaulmaul",
@@ -45,11 +45,11 @@ function ContactRow({ icon, label, href, value }: { icon: string; label: string;
       href={href}
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel="noopener noreferrer"
-      className="flex items-center gap-[26px] p-[16px] bg-slate-900/50 border border-slate-800/60 hover:border-highlight-400/50 hover:bg-highlight-400/5 transition-all group font-mono rounded-2xl shadow-md"
+      className="flex items-center gap-[26px] p-[16px] bg-card border border-border hover:bg-accent hover:text-accent-foreground transition-all group font-mono rounded-xl shadow-sm"
     >
       <span className="text-[16px] text-highlight-400 font-bold">{icon}</span>
-      <span className="text-[16px] uppercase tracking-widest text-slate-500 w-[100px] group-hover:text-slate-300">{label}</span>
-      <span className="text-[16px] text-slate-300 group-hover:text-white truncate">{value}</span>
+      <span className="text-[16px] uppercase tracking-widest text-muted-foreground w-[100px] group-hover:text-muted-foreground">{label}</span>
+      <span className="text-[16px] text-muted-foreground group-hover:text-foreground truncate">{value}</span>
     </a>
   )
 }

@@ -15,11 +15,11 @@ export default function Projects() {
             className="card-glass p-[26px] flex flex-col gap-[16px]"
           >
             <div>
-              <h3 className="m-0 mb-[10px] text-[16px] font-bold text-white font-mono flex items-center gap-[10px]">
+              <h3 className="m-0 mb-[10px] text-[16px] font-bold text-foreground font-mono flex items-center gap-[10px]">
                 <span className="text-brand-400">◆</span>
                 {project.title}
               </h3>
-              <p className="m-0 text-[16px] text-slate-400 leading-relaxed font-sans border-l-2 border-slate-800 pl-[16px]">
+              <p className="m-0 text-[16px] text-muted-foreground leading-relaxed font-sans border-l-2 border-border pl-[16px]">
                 {project.impact}
               </p>
             </div>
@@ -34,9 +34,9 @@ export default function Projects() {
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center gap-[10px] text-[16px] font-mono text-slate-500 hover:text-highlight-400 transition-colors pt-[16px] border-t border-slate-800"
+              className="mt-auto inline-flex items-center gap-[10px] text-[16px] font-mono text-muted-foreground hover:text-highlight-400 transition-colors pt-[16px] border-t border-border"
             >
-              <span className="text-[10px] px-[6px] py-[2px] bg-slate-800 rounded-xl">⌥</span>
+              <span className="text-[10px] px-[6px] py-[2px] bg-secondary rounded-xl">⌥</span>
               View on GitHub →
             </a>
           </div>

@@ -30,13 +30,13 @@ export default function Certifications() {
 
         <div className="flex-1 relative z-10">
           <div className="flex flex-wrap items-center gap-[16px] mb-[10px]">
-            <h3 className="text-[26px] font-bold text-white font-mono leading-none m-0">{featured.title}</h3>
+            <h3 className="text-[26px] font-bold text-foreground font-mono leading-none m-0">{featured.title}</h3>
             <span className="px-[10px] py-[4px] bg-alert-400/10 border border-alert-400/30 text-alert-400 text-[10px] font-bold font-mono uppercase tracking-[0.1em]">
               {featured.scoreLabel} · {featured.score}
             </span>
           </div>
           
-          <p className="text-[16px] text-slate-300 mb-[26px] leading-relaxed max-w-[600px] border-l-2 border-slate-800 pl-[16px]">
+          <p className="text-[16px] text-muted-foreground mb-[26px] leading-relaxed max-w-[600px] border-l-2 border-border pl-[16px]">
             {featured.desc}
           </p>
 
@@ -46,15 +46,15 @@ export default function Certifications() {
             ))}
           </div>
 
-          <a href={featured.credly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-[10px] text-[10px] md:text-[16px] font-mono text-alert-400 hover:text-white transition-colors border-b border-alert-400/30 pb-1">
+          <a href={featured.credly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-[10px] text-[10px] md:text-[16px] font-mono text-alert-400 hover:text-foreground transition-colors border-b border-alert-400/30 pb-1">
             [ Verify on Credly ]
           </a>
         </div>
 
-        <div className="shrink-0 flex flex-col items-center justify-center p-[26px] bg-slate-900 border border-alert-400/20 text-center w-full md:w-auto relative z-10">
+        <div className="shrink-0 flex flex-col items-center justify-center p-[26px] bg-card border border-alert-400/20 text-center w-full md:w-auto relative z-10">
           <span className="text-[42px] font-bold text-alert-400 leading-none font-mono tracking-tighter">300</span>
           <span className="text-[10px] text-alert-400/70 tracking-[0.1em] mt-1 font-mono">/ 300</span>
-          <span className="text-[10px] text-slate-500 uppercase tracking-widest mt-[10px] font-mono">Exam Score</span>
+          <span className="text-[10px] text-muted-foreground uppercase tracking-widest mt-[10px] font-mono">Exam Score</span>
           <div className="w-[42px] h-[2px] bg-alert-400 mt-[10px]" />
         </div>
       </div>
@@ -67,8 +67,8 @@ export default function Certifications() {
               <span className="text-[16px] text-brand-400 font-bold font-mono tracking-widest uppercase">
                 {group.name}
               </span>
-              <div className="flex-1 h-px bg-slate-800" />
-              <span className="text-[10px] text-slate-500 font-mono">[{group.certs.length} certs]</span>
+              <div className="flex-1 h-px bg-secondary" />
+              <span className="text-[10px] text-muted-foreground font-mono">[{group.certs.length} certs]</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px]">
@@ -92,10 +92,10 @@ function CertCard({ cert }: { cert: Cert }) {
         <span className="inline-block mb-[10px] text-[10px] px-[6px] py-[2px] bg-brand-500/10 border border-brand-500/30 text-brand-400 font-bold tracking-widest font-mono uppercase">
           {cert.issuer}
         </span>
-        <h4 className="text-[16px] font-bold text-white font-mono leading-snug m-0 mb-[10px]">
+        <h4 className="text-[16px] font-bold text-foreground font-mono leading-snug m-0 mb-[10px]">
           {cert.title}
         </h4>
-        <p className="text-[16px] text-slate-400 leading-relaxed font-sans m-0">
+        <p className="text-[16px] text-muted-foreground leading-relaxed font-sans m-0">
           {cert.desc}
         </p>
       </div>
@@ -105,7 +105,7 @@ function CertCard({ cert }: { cert: Cert }) {
           <span key={tag} className="badge text-[10px]">{tag}</span>
         ))}
         {cert.tags.length > 3 && (
-          <span className="text-[10px] text-slate-500 font-mono flex items-center">+{cert.tags.length - 3}</span>
+          <span className="text-[10px] text-muted-foreground font-mono flex items-center">+{cert.tags.length - 3}</span>
         )}
       </div>
 
@@ -113,7 +113,7 @@ function CertCard({ cert }: { cert: Cert }) {
         href={cert.credly}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-auto pt-[16px] border-t border-slate-800 text-[10px] font-mono text-slate-500 hover:text-highlight-400 transition-colors flex items-center gap-[10px]"
+        className="mt-auto pt-[16px] border-t border-border text-[10px] font-mono text-muted-foreground hover:text-highlight-400 transition-colors flex items-center gap-[10px]"
       >
         <span>[ Verify ]</span>
       </a>

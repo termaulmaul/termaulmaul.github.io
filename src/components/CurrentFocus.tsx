@@ -15,14 +15,14 @@ export default function CurrentFocus() {
             className="card-glass p-[26px] flex items-start gap-[16px]"
           >
             <span className="text-accent-400 font-mono mt-[2px] font-bold">[{'>'}]</span>
-            <span className="text-[16px] text-slate-300 font-medium leading-relaxed">{item}</span>
+            <span className="text-[16px] text-muted-foreground font-medium leading-relaxed">{item}</span>
           </div>
         ))}
       </div>
 
-      <div className="mt-[42px] p-[26px] bg-slate-900 border border-slate-800 border-l-[4px] border-l-alert-400 relative overflow-hidden">
+      <div className="mt-[42px] p-[26px] bg-card border border-border border-l-[4px] border-l-alert-400 relative overflow-hidden">
         <div className="absolute top-0 right-0 p-[10px] text-[10px] font-mono text-alert-400 font-bold opacity-50 uppercase">Alert</div>
-        <p className="text-[16px] text-slate-400 font-mono italic">
+        <p className="text-[16px] text-muted-foreground font-mono italic">
           "quality gates before production risk — latency, correctness, and release confidence"
         </p>
       </div>
