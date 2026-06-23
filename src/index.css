@@ -1,46 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  /* Shadcn UI Theme Variables (Dark Mode default - Zinc) */
-  --color-background: hsl(240 10% 3.9%);
-  --color-foreground: hsl(0 0% 98%);
+  /* Terminal UI Theme Variables (Dark Mode default - Pure Black & Neon Green) */
+  --color-background: hsl(0 0% 0%);
+  --color-foreground: hsl(120 100% 50%);
   
-  --color-card: hsl(240 10% 3.9%);
-  --color-card-foreground: hsl(0 0% 98%);
+  --color-card: hsl(120 100% 5%);
+  --color-card-foreground: hsl(120 100% 50%);
   
-  --color-popover: hsl(240 10% 3.9%);
-  --color-popover-foreground: hsl(0 0% 98%);
+  --color-popover: hsl(120 100% 5%);
+  --color-popover-foreground: hsl(120 100% 50%);
   
-  --color-primary: hsl(160 84% 39%); /* Emerald 500 for better contrast */
-  --color-primary-foreground: hsl(160 84% 10%);
+  --color-primary: hsl(120 100% 50%); 
+  --color-primary-foreground: hsl(0 0% 0%);
   
-  --color-secondary: hsl(240 3.7% 15.9%);
-  --color-secondary-foreground: hsl(0 0% 98%);
+  --color-secondary: hsl(120 100% 20%);
+  --color-secondary-foreground: hsl(120 100% 50%);
   
-  --color-muted: hsl(240 3.7% 15.9%);
-  --color-muted-foreground: hsl(240 5% 64.9%);
+  --color-muted: hsl(120 100% 10%);
+  --color-muted-foreground: hsl(120 100% 35%);
   
-  --color-accent: hsl(240 3.7% 15.9%);
-  --color-accent-foreground: hsl(0 0% 98%);
+  --color-accent: hsl(120 100% 20%);
+  --color-accent-foreground: hsl(120 100% 60%);
   
-  --color-destructive: hsl(0 62.8% 30.6%);
-  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-destructive: hsl(0 100% 50%);
+  --color-destructive-foreground: hsl(0 0% 0%);
   
-  --color-border: hsl(240 3.7% 15.9%);
-  --color-input: hsl(240 3.7% 15.9%);
-  --color-ring: hsl(160 84% 39%);
+  --color-border: hsl(120 100% 30%);
+  --color-input: hsl(120 100% 20%);
+  --color-ring: hsl(120 100% 50%);
 
-  /* Keep legacy variables to prevent broken classes, but map them to Shadcn colors */
+  /* Keep legacy variables to prevent broken classes, but map them to Terminal colors */
   --color-brand-400: var(--color-primary);
   --color-brand-500: var(--color-primary);
   --color-accent-400: var(--color-primary); 
   --color-accent-500: var(--color-primary);
   --color-alert-400: var(--color-destructive);
-  --color-warn-400: hsl(38 92% 50%);
-  --color-highlight-400: hsl(160 84% 39%);
+  --color-warn-400: hsl(60 100% 50%);
+  --color-highlight-400: hsl(120 100% 70%);
 }
 
 @layer base {
@@ -50,31 +50,70 @@
   }
   
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-foreground;
+    @apply bg-background text-foreground font-mono antialiased selection:bg-primary/40 selection:text-background;
+    text-shadow: 0 0 5px hsl(120 100% 50% / 0.5); /* CRT Glow */
   }
   
   ::selection {
-    background-color: hsl(160 84% 39% / 0.3);
-    color: #fff;
+    background-color: hsl(120 100% 50% / 0.4);
+    color: #000;
+  }
+
+  /* CRT Screen / VHS Overlay */
+  body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+    z-index: 9999;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
   }
 }
 
 @layer utilities {
   .bg-grid {
     background-image:
-      linear-gradient(hsl(160 84% 39% / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(160 84% 39% / 0.05) 1px, transparent 1px);
-    background-size: 42px 42px; /* Golden ratio approximated */
+      linear-gradient(hsl(120 100% 50% / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(120 100% 50% / 0.1) 1px, transparent 1px);
+    background-size: 42px 42px;
     background-position: center top;
   }
 
-  /* Shadcn style Card */
+  /* Shadcn style Card but Terminal */
   .card-glass {
-    @apply bg-card text-card-foreground border border-border rounded-xl shadow-sm transition-colors duration-200 relative overflow-hidden;
+    @apply bg-card text-card-foreground border border-border rounded-none shadow-[0_0_10px_rgba(0,255,0,0.1)] transition-colors duration-200 relative overflow-hidden;
   }
   
   .card-glass:hover {
-    @apply border-border/80 shadow-md;
+    @apply border-primary shadow-[0_0_15px_rgba(0,255,0,0.3)];
   }
 
   .cursor-blink {
@@ -85,32 +124,35 @@
     animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   
-  /* Shadcn style Badge */
+  /* Shadcn style Badge Terminal */
   .badge {
-    @apply inline-flex items-center px-[10px] py-[4px] rounded-full text-[10px] font-mono font-medium bg-secondary text-secondary-foreground border border-transparent transition-colors duration-200;
+    @apply inline-flex items-center px-[10px] py-[4px] text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-primary transition-colors duration-200 uppercase tracking-wider;
+    box-shadow: 0 0 5px hsl(120 100% 50% / 0.3);
   }
   
   .badge:hover {
-    @apply bg-secondary/80;
+    @apply bg-primary text-primary-foreground;
   }
 
-  /* Section Label Shadcn style */
+  /* Section Label Terminal style */
   .section-label {
-    @apply text-[16px] tracking-widest uppercase font-mono font-bold text-muted-foreground mb-[26px] flex items-center gap-[16px];
+    @apply text-[16px] tracking-widest uppercase font-mono font-bold text-primary mb-[26px] flex items-center gap-[16px];
+    text-shadow: 0 0 8px hsl(120 100% 50% / 0.6);
   }
   
   .section-label::after {
     content: '';
-    @apply h-px bg-border flex-1;
+    @apply h-px bg-primary/50 flex-1;
   }
   
   .devops-title {
-    @apply text-[26px] md:text-[42px] font-bold text-foreground mb-[42px] font-mono tracking-tight flex items-center gap-4;
+    @apply text-[26px] md:text-[42px] font-bold text-primary mb-[42px] font-mono tracking-tight flex items-center gap-4;
+    text-shadow: 0 0 10px hsl(120 100% 50% / 0.8);
   }
   
   .devops-title::before {
-    content: '>';
-    @apply text-primary opacity-70;
+    content: 'C:\\>';
+    @apply text-primary opacity-100 mr-2;
   }
 }
 
@@ -124,16 +166,22 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Custom Scrollbar - Shadcn style */
+@keyframes flicker {
+  0% { opacity: 0.01; }
+  50% { opacity: 0.04; }
+  100% { opacity: 0.01; }
+}
+
+/* Custom Scrollbar - Terminal style */
 ::-webkit-scrollbar { 
-  width: 10px; 
+  width: 12px; 
 }
 ::-webkit-scrollbar-track { 
-  @apply bg-background; 
+  @apply bg-background border-l border-border; 
 }
 ::-webkit-scrollbar-thumb { 
-  @apply bg-border border-2 border-background rounded-full; 
+  @apply bg-primary; 
 }
 ::-webkit-scrollbar-thumb:hover { 
-  @apply bg-muted-foreground; 
+  @apply bg-primary/80; 
 }
