@@ -24,6 +24,26 @@ export default function App() {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    // Global IntersectionObserver for kinetic scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('kinetic-active')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    // Select all sections inside main
+    const sections = document.querySelectorAll('main > section')
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="font-sans bg-[#050505] min-h-screen">
       {/* Global 3D Kinetic Background */}

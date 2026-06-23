@@ -20,7 +20,7 @@ export default function Hero() {
       </div>
 
       {/* Massive Central Typography */}
-      <div className="relative z-10 w-full px-4 flex flex-col items-center pointer-events-none select-none mix-blend-overlay text-white text-center">
+      <div className="relative z-10 w-full px-4 flex flex-col items-center pointer-events-none select-none mix-blend-overlay text-white text-center fade-up">
         <h1 className="doto-heading text-[15vw] leading-[0.85] tracking-tighter w-full">
           <span className="block w-full text-center">MAULANA</span>
           <span className="block w-full text-center">
