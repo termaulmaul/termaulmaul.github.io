@@ -1,86 +1,74 @@
-import { useRef, useMemo } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrthographicCamera } from '@react-three/drei'
-import * as THREE from 'three'
+import { useRef, useMemo } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Points, PointMaterial, Icosahedron } from '@react-three/drei';
+import * as THREE from 'three';
 
-function BoxGrid() {
-  const group = useRef<THREE.Group>(null)
+function ParticleField() {
+  const ref = useRef<THREE.Points>(null);
   
-  const gridSize = 14
-  const spacing = 2.4
-  
-  const boxes = useMemo(() => {
-    const temp = []
-    const offset = (gridSize * spacing) / 2
-    for (let x = 0; x < gridSize; x++) {
-      for (let z = 0; z < gridSize; z++) {
-        temp.push({
-          position: [(x * spacing) - offset, 0, (z * spacing) - offset] as [number, number, number],
-          id: `${x}-${z}`,
-          distance: Math.sqrt(Math.pow(x - gridSize/2, 2) + Math.pow(z - gridSize/2, 2))
-        })
-      }
+  // Generate random points in a sphere
+  const positions = useMemo(() => {
+    const count = 3000;
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      // Create a random position within a sphere volume
+      const r = 25 * Math.cbrt(Math.random());
+      const theta = Math.random() * 2 * Math.PI;
+      const phi = Math.acos(2 * Math.random() - 1);
+      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      pos[i * 3 + 2] = r * Math.cos(phi);
     }
-    return temp
-  }, [])
+    return pos;
+  }, []);
 
-  useFrame((state) => {
-    if (!group.current) return
-    const time = state.clock.getElapsedTime()
-    group.current.children.forEach((child, i) => {
-      const box = boxes[i]
-      // DevOps data pulse animation (sine wave radiating outward)
-      child.position.y = Math.sin(time * 1.5 - box.distance * 0.4) * 0.6
-    })
-  })
-
-  // Geometry shared for performance
-  const boxGeometry = useMemo(() => new THREE.BoxGeometry(2, 0.4, 2), [])
-  const edgesGeometry = useMemo(() => new THREE.EdgesGeometry(boxGeometry), [boxGeometry])
+  useFrame((_, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 20;
+      ref.current.rotation.y -= delta / 30;
+    }
+  });
 
   return (
-    <group ref={group}>
-      {boxes.map((box) => (
-        <mesh key={box.id} position={box.position} geometry={boxGeometry}>
-          <meshStandardMaterial 
-            color="#09090b" 
-            metalness={0.9}
-            roughness={0.1}
-            emissive="#10b981"
-            emissiveIntensity={0.05}
-          />
-          <lineSegments geometry={edgesGeometry}>
-            <lineBasicMaterial color="#10b981" opacity={0.3} transparent />
-          </lineSegments>
-        </mesh>
-      ))}
+    <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+      <PointMaterial transparent color="#00ffff" size={0.05} sizeAttenuation={true} depthWrite={false} opacity={0.6} />
+    </Points>
+  );
+}
+
+function KineticCore() {
+  const ref = useRef<THREE.Mesh>(null);
+  const refOuter = useRef<THREE.Mesh>(null);
+
+  useFrame((_, delta) => {
+    if (ref.current && refOuter.current) {
+      ref.current.rotation.x += delta * 0.2;
+      ref.current.rotation.y += delta * 0.3;
+
+      refOuter.current.rotation.x -= delta * 0.1;
+      refOuter.current.rotation.y -= delta * 0.15;
+    }
+  });
+
+  return (
+    <group position={[0, 0, -5]}>
+      <Icosahedron ref={ref} args={[3, 1]}>
+        <meshBasicMaterial color="#00ffff" wireframe transparent opacity={0.15} />
+      </Icosahedron>
+      <Icosahedron ref={refOuter} args={[4, 2]}>
+        <meshBasicMaterial color="#00ffff" wireframe transparent opacity={0.05} />
+      </Icosahedron>
     </group>
-  )
+  );
 }
 
 export default function Background3D() {
   return (
-    <div className="absolute inset-0 z-0 opacity-50 pointer-events-none overflow-hidden">
-      <Canvas dpr={[1, 2]}>
-        <OrthographicCamera 
-          makeDefault 
-          position={[50, 50, 50]} 
-          zoom={22}
-          near={-100}
-          far={1000}
-        />
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 20, 10]} intensity={2} color="#6366f1" />
-        <pointLight position={[-10, 10, -10]} intensity={1.5} color="#10b981" />
-        
-        {/* Rotate group slightly for dynamic isometric feel */}
-        <group position={[0, -6, 0]}>
-          <BoxGrid />
-        </group>
+    <div className="fixed inset-0 z-[0] pointer-events-none bg-black">
+      <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
+        <ParticleField />
+        <KineticCore />
       </Canvas>
-      {/* Vignette & fade out at the bottom */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#09090b_70%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
     </div>
-  )
+  );
 }
