@@ -1,20 +1,11 @@
-import { lazy, Suspense } from 'react'
 import { profile } from '../data/profile'
-
-const Background3D = lazy(() => import('./Background3D'))
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="h-[105vh] bg-[#404040] relative flex flex-col items-center justify-center overflow-hidden w-full"
+      className="h-[105vh] bg-transparent relative flex flex-col items-center justify-center overflow-hidden w-full"
     >
-      {/* 3D Background Layer */}
-      <div className="absolute inset-0 z-0">
-        <Suspense fallback={null}>
-          <Background3D />
-        </Suspense>
-      </div>
 
       {/* Floating Header Info */}
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 md:p-12 z-20">
@@ -33,7 +24,7 @@ export default function Hero() {
         <h1 className="doto-heading text-[15vw] leading-[0.85] tracking-tighter w-full">
           <span className="block w-full text-center">MAULANA</span>
           <span className="block w-full text-center">
-            RAFI <span className="text-transparent" style={{ WebkitTextStroke: "min(0.5vw, 2px) white" }}>SDET</span>
+            RAFI <span className="text-transparent" style={{ WebkitTextStroke: "min(0.5vw, 2px) #00ffff" }}>SDET</span>
           </span>
         </h1>
       </div>
