@@ -1,18 +1,14 @@
-import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-
-const CurrentFocus = lazy(() => import('./components/CurrentFocus'))
-const ExpertiseCards = lazy(() => import('./components/ExpertiseCards'))
-const TechStack = lazy(() => import('./components/TechStack'))
-const DomainExperience = lazy(() => import('./components/DomainExperience'))
-const GitHubInsights = lazy(() => import('./components/GitHubInsights'))
-const Projects = lazy(() => import('./components/Projects'))
-const Certifications = lazy(() => import('./components/Certifications'))
-const Contact = lazy(() => import('./components/Contact'))
-
-const Fallback = () => <div style={{ minHeight: '80px' }} aria-hidden />
+import CurrentFocus from './components/CurrentFocus'
+import ExpertiseCards from './components/ExpertiseCards'
+import TechStack from './components/TechStack'
+import DomainExperience from './components/DomainExperience'
+import GitHubInsights from './components/GitHubInsights'
+import Projects from './components/Projects'
+import Certifications from './components/Certifications'
+import Contact from './components/Contact'
 
 export default function App() {
   return (
@@ -21,16 +17,14 @@ export default function App() {
       <Hero />
       <main className="bg-[#111111] text-[#ffffff] min-h-screen relative z-10 w-full rounded-t-[40px] -mt-10 overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.1)] pb-12">
         <About />
-        <Suspense fallback={<Fallback />}>
-          <CurrentFocus />
-          <ExpertiseCards />
-          <TechStack />
-          <DomainExperience />
-          <GitHubInsights />
-          <Projects />
-          <Certifications />
-          <Contact />
-        </Suspense>
+        <CurrentFocus />
+        <ExpertiseCards />
+        <TechStack />
+        <DomainExperience />
+        <GitHubInsights />
+        <Projects />
+        <Certifications />
+        <Contact />
         
         <footer className="mt-20 border-t border-white/10 pt-12 pb-8 text-center text-sm text-[#52525b] px-4">
           <span className="font-bold text-white uppercase tracking-widest block md:inline">Maulana Rafi Nurdiansyah</span>
