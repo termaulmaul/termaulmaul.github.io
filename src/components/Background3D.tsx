@@ -71,7 +71,8 @@ export default function Background3D() {
       <Canvas 
         shadows 
         camera={{ position: [0, 0, 10], fov: 35 }}
-        gl={{ antialias: true, alpha: false }}
+        gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
+        dpr={[1, 1.5]}
       >
         <color attach="background" args={['#404040']} />
         <fog attach="fog" args={['#404040', 8, 20]} />
@@ -81,7 +82,7 @@ export default function Background3D() {
           position={[5, 10, 5]} 
           intensity={1.5} 
           castShadow 
-          shadow-mapSize={1024}
+          shadow-mapSize={512}
         />
         <directionalLight 
           position={[-5, 5, -5]} 
@@ -101,6 +102,7 @@ export default function Background3D() {
           far={10} 
           resolution={256} 
           color="#000000"
+          frames={1}
         />
       </Canvas>
       

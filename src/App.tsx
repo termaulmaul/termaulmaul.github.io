@@ -15,7 +15,7 @@ export default function App() {
     <div className="font-sans bg-[#0a0a0a]">
       <Navbar />
       <Hero />
-      <main className="bg-[#111111] text-[#ffffff] min-h-screen relative z-10 w-full rounded-t-[40px] -mt-10 overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.1)] pb-12">
+      <main className="bg-[#111111] text-[#ffffff] min-h-screen relative z-10 w-full rounded-t-[40px] -mt-10 overflow-hidden pb-12 border-t border-white/5">
         <About />
         <CurrentFocus />
         <ExpertiseCards />

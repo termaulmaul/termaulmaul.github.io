@@ -60,11 +60,11 @@
   }
 
   .card-glass {
-    @apply bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-sm transition-all duration-300;
+    @apply bg-white/5 border border-white/10 rounded-3xl shadow-sm transition-all duration-300;
   }
   
   .card-glass-light {
-    @apply bg-white/60 border border-black/5 rounded-3xl backdrop-blur-md shadow-sm transition-all duration-300;
+    @apply bg-white/60 border border-black/5 rounded-3xl shadow-sm transition-all duration-300;
   }
   
   .card-glass:hover, .card-glass-light:hover {
@@ -76,11 +76,11 @@
   }
   
   .badge {
-    @apply inline-flex items-center px-[12px] py-[6px] text-[11px] font-mono font-medium bg-white/10 text-white border border-white/20 transition-colors duration-200 uppercase tracking-wide rounded-full backdrop-blur-sm;
+    @apply inline-flex items-center px-[12px] py-[6px] text-[11px] font-mono font-medium bg-white/10 text-white border border-white/20 transition-colors duration-200 uppercase tracking-wide rounded-full;
   }
   
   .badge-light {
-    @apply inline-flex items-center px-[14px] py-[8px] text-[12px] font-sans font-medium bg-black/5 text-[#52525b] border border-black/10 transition-colors duration-200 tracking-wide rounded-full backdrop-blur-sm;
+    @apply inline-flex items-center px-[14px] py-[8px] text-[12px] font-sans font-medium bg-black/5 text-[#52525b] border border-black/10 transition-colors duration-200 tracking-wide rounded-full;
   }
 
   .badge:hover {
