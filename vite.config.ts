@@ -9,13 +9,18 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
-        // Keep hashed filenames for cache busting
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
         manualChunks: (id) => {
+          if (id.includes('node_modules/three')) {
+            return 'three'
+          }
+          if (id.includes('node_modules/@react-three')) {
+            return 'react-three'
+          }
           if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
-            return 'vendor'
+            return 'react-core'
           }
         },
       },

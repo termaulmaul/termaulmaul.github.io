@@ -23,8 +23,8 @@ export default function Navbar() {
       <div 
         className={`pointer-events-auto flex items-center justify-center gap-6 md:gap-10 px-8 py-3 rounded-full transition-all duration-300 ${
           scrolled 
-            ? 'bg-white/80 backdrop-blur-md shadow-lg border border-black/5 text-[#171717]' 
-            : 'bg-white/60 backdrop-blur-sm text-[#171717] hover:bg-white/80'
+            ? 'bg-white/80 backdrop-blur-md shadow-lg border border-white/20/5 text-[#ffffff]' 
+            : 'bg-white/60 backdrop-blur-sm text-[#ffffff] hover:bg-white/80'
         }`}
       >
         {links.map(l => (

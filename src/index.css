@@ -124,11 +124,11 @@
   width: 8px; 
 }
 ::-webkit-scrollbar-track { 
-  @apply bg-[#f4f4f4]; 
+  @apply bg-[#111111]; 
 }
 ::-webkit-scrollbar-thumb { 
-  @apply bg-[#b3b3b3] rounded-full; 
+  @apply bg-[#333333] rounded-full; 
 }
 ::-webkit-scrollbar-thumb:hover { 
-  @apply bg-[#a3a3a3]; 
+  @apply bg-[#555555]; 
 }
