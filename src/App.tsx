@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -14,13 +14,25 @@ import Contact from './components/Contact'
 const Background3D = lazy(() => import('./components/Background3D'))
 
 export default function App() {
+  const [load3D, setLoad3D] = useState(false)
+
+  useEffect(() => {
+    // Defer 3D loading to prioritize initial content paint (LCP) and avoid main-thread blocking
+    const timer = setTimeout(() => {
+      setLoad3D(true)
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div className="font-sans bg-[#050505] min-h-screen">
       {/* Global 3D Kinetic Background */}
       <div className="fixed inset-0 z-0">
-        <Suspense fallback={null}>
-          <Background3D />
-        </Suspense>
+        {load3D && (
+          <Suspense fallback={null}>
+            <Background3D />
+          </Suspense>
+        )}
       </div>
 
       {/* Content Layer */}
