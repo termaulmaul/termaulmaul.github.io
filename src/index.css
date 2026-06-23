@@ -4,34 +4,34 @@
   --font-sans: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  /* Terminal UI Theme Variables (Dark Mode default - Pure Black & Neon Green) */
+  /* Terminal UI Theme Variables (Dark Mode default - Pure Black & Neon Cyan) */
   --color-background: hsl(0 0% 0%);
-  --color-foreground: hsl(120 100% 50%);
+  --color-foreground: hsl(190 100% 50%);
   
-  --color-card: hsl(120 100% 5%);
-  --color-card-foreground: hsl(120 100% 50%);
+  --color-card: hsl(190 100% 5%);
+  --color-card-foreground: hsl(190 100% 50%);
   
-  --color-popover: hsl(120 100% 5%);
-  --color-popover-foreground: hsl(120 100% 50%);
+  --color-popover: hsl(190 100% 5%);
+  --color-popover-foreground: hsl(190 100% 50%);
   
-  --color-primary: hsl(120 100% 50%); 
+  --color-primary: hsl(190 100% 50%); 
   --color-primary-foreground: hsl(0 0% 0%);
   
-  --color-secondary: hsl(120 100% 20%);
-  --color-secondary-foreground: hsl(120 100% 50%);
+  --color-secondary: hsl(190 100% 20%);
+  --color-secondary-foreground: hsl(190 100% 50%);
   
-  --color-muted: hsl(120 100% 10%);
-  --color-muted-foreground: hsl(120 100% 35%);
+  --color-muted: hsl(190 100% 10%);
+  --color-muted-foreground: hsl(190 100% 35%);
   
-  --color-accent: hsl(120 100% 20%);
-  --color-accent-foreground: hsl(120 100% 60%);
+  --color-accent: hsl(190 100% 20%);
+  --color-accent-foreground: hsl(190 100% 60%);
   
   --color-destructive: hsl(0 100% 50%);
   --color-destructive-foreground: hsl(0 0% 0%);
   
-  --color-border: hsl(120 100% 30%);
-  --color-input: hsl(120 100% 20%);
-  --color-ring: hsl(120 100% 50%);
+  --color-border: hsl(190 100% 30%);
+  --color-input: hsl(190 100% 20%);
+  --color-ring: hsl(190 100% 50%);
 
   /* Keep legacy variables to prevent broken classes, but map them to Terminal colors */
   --color-brand-400: var(--color-primary);
@@ -40,7 +40,7 @@
   --color-accent-500: var(--color-primary);
   --color-alert-400: var(--color-destructive);
   --color-warn-400: hsl(60 100% 50%);
-  --color-highlight-400: hsl(120 100% 70%);
+  --color-highlight-400: hsl(190 100% 70%);
 }
 
 @layer base {
@@ -51,11 +51,11 @@
   
   body {
     @apply bg-background text-foreground font-mono antialiased selection:bg-primary/40 selection:text-background;
-    text-shadow: 0 0 5px hsl(120 100% 50% / 0.5); /* CRT Glow */
+    text-shadow: 0 0 5px hsl(190 100% 50% / 0.5); /* CRT Glow */
   }
   
   ::selection {
-    background-color: hsl(120 100% 50% / 0.4);
+    background-color: hsl(190 100% 50% / 0.4);
     color: #000;
   }
 
@@ -74,7 +74,7 @@
     ), linear-gradient(
       90deg,
       rgba(255, 0, 0, 0.06),
-      rgba(0, 255, 0, 0.02),
+      rgba(0, 255, 255, 0.02),
       rgba(0, 0, 255, 0.06)
     );
     z-index: 9999;
@@ -101,19 +101,19 @@
 @layer utilities {
   .bg-grid {
     background-image:
-      linear-gradient(hsl(120 100% 50% / 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(120 100% 50% / 0.1) 1px, transparent 1px);
+      linear-gradient(hsl(190 100% 50% / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(190 100% 50% / 0.1) 1px, transparent 1px);
     background-size: 42px 42px;
     background-position: center top;
   }
 
   /* Shadcn style Card but Terminal */
   .card-glass {
-    @apply bg-card text-card-foreground border border-border rounded-none shadow-[0_0_10px_rgba(0,255,0,0.1)] transition-colors duration-200 relative overflow-hidden;
+    @apply bg-card text-card-foreground border border-border rounded-none shadow-[0_0_10px_rgba(0,255,255,0.1)] transition-colors duration-200 relative overflow-hidden;
   }
   
   .card-glass:hover {
-    @apply border-primary shadow-[0_0_15px_rgba(0,255,0,0.3)];
+    @apply border-primary shadow-[0_0_15px_rgba(0,255,255,0.3)];
   }
 
   .cursor-blink {
@@ -127,7 +127,7 @@
   /* Shadcn style Badge Terminal */
   .badge {
     @apply inline-flex items-center px-[10px] py-[4px] text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-primary transition-colors duration-200 uppercase tracking-wider;
-    box-shadow: 0 0 5px hsl(120 100% 50% / 0.3);
+    box-shadow: 0 0 5px hsl(190 100% 50% / 0.3);
   }
   
   .badge:hover {
@@ -137,7 +137,7 @@
   /* Section Label Terminal style */
   .section-label {
     @apply text-[16px] tracking-widest uppercase font-mono font-bold text-primary mb-[26px] flex items-center gap-[16px];
-    text-shadow: 0 0 8px hsl(120 100% 50% / 0.6);
+    text-shadow: 0 0 8px hsl(190 100% 50% / 0.6);
   }
   
   .section-label::after {
@@ -147,7 +147,7 @@
   
   .devops-title {
     @apply text-[26px] md:text-[42px] font-bold text-primary mb-[42px] font-mono tracking-tight flex items-center gap-4;
-    text-shadow: 0 0 10px hsl(120 100% 50% / 0.8);
+    text-shadow: 0 0 10px hsl(190 100% 50% / 0.8);
   }
   
   .devops-title::before {
