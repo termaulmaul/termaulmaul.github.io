@@ -1,101 +1,42 @@
+import { lazy, Suspense } from 'react'
 import { profile } from '../data/profile'
+
+const Background3D = lazy(() => import('./Background3D'))
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center pt-[110px] pb-[68px] px-[26px] relative"
+      className="h-[105vh] bg-[#404040] relative flex flex-col items-center justify-center overflow-hidden w-full"
     >
+      {/* 3D Background Layer */}
+      <div className="absolute inset-0 z-0">
+        <Suspense fallback={null}>
+          <Background3D />
+        </Suspense>
+      </div>
 
-      <div className="max-w-[800px] w-full relative z-10 flex flex-col items-center">
-        {/* Terminal block */}
-        <div className="card-glass w-full p-[26px] md:p-[42px] mb-[42px] border-t-[4px] border-t-accent-400">
-          
-          {/* Terminal Header */}
-          <div className="flex items-center gap-[10px] mb-[26px] border-b border-border pb-[16px]">
-            <div className="flex gap-[10px]">
-              <div className="w-[10px] h-[10px] rounded-md bg-alert-400" />
-              <div className="w-[10px] h-[10px] rounded-md bg-warn-400" />
-              <div className="w-[10px] h-[10px] rounded-md bg-accent-400" />
-            </div>
-            <span className="ml-[16px] font-mono text-[10px] text-muted-foreground uppercase tracking-[0.1em]">bash - 80x24</span>
-          </div>
-
-          <div className="font-mono text-[16px] leading-relaxed space-y-[26px]">
-            <div>
-              <p className="mb-[10px] text-muted-foreground">
-                <span className="text-accent-400 font-bold mr-2">termaulmaul@macbook-pro:~$</span>
-                whoami
-              </p>
-              <h1 className="text-[42px] md:text-[68px] font-bold text-foreground tracking-tight leading-none drop-shadow-[0_0_10px_rgba(74,222,128,0.2)]">
-                {profile.name}
-              </h1>
-            </div>
-
-            <div>
-              <p className="mb-[10px] text-muted-foreground">
-                <span className="text-accent-400 font-bold mr-2">termaulmaul@macbook-pro:~$</span>
-                cat current_role.txt
-              </p>
-              <div className="pl-[16px] border-l-[4px] border-brand-500/50">
-                <p className="text-[26px] text-brand-400 font-bold tracking-tight">
-                  {profile.title}
-                </p>
-                <p className="text-[16px] text-muted-foreground mt-[10px]">
-                  {profile.subtitle}
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <p className="mb-[10px] text-muted-foreground">
-                <span className="text-accent-400 font-bold mr-2">termaulmaul@macbook-pro:~$</span>
-                cat ./mission.sh
-              </p>
-              <p className="text-[16px] text-muted-foreground max-w-[600px] font-sans">
-                {profile.intro}
-              </p>
-            </div>
-
-            <div className="pt-[10px]">
-              <span className="text-accent-400 font-bold mr-2">termaulmaul@macbook-pro:~$</span>
-              <span className="cursor-blink text-accent-400">█</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Tagline */}
-        <p className="text-[10px] md:text-[16px] tracking-[0.2em] uppercase font-bold mb-[42px] text-center font-mono text-highlight-400">
-          // {profile.tagline}
-        </p>
-
-        {/* CTA buttons */}
-        <div className="flex flex-wrap gap-[16px] justify-center items-center font-mono">
-          <CtaBtn href={`mailto:${profile.email}`} label="./contact.sh" primary />
-          <CtaBtn href={profile.github} label="--github" />
-          <CtaBtn href={profile.linkedin} label="--linkedin" />
-          <CtaBtn href={profile.credly} label="--credly" />
+      {/* Floating Header Info */}
+      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 md:p-12 z-20">
+        <div className="flex justify-between items-start mt-20">
+          <p className="text-white/60 text-[10px] md:text-xs font-mono max-w-[150px] leading-relaxed uppercase">
+            {profile.name} <br/> PORTFOLIO 2026 ©
+          </p>
+          <p className="text-white text-[10px] md:text-xs max-w-[200px] text-right uppercase tracking-wider font-medium leading-relaxed">
+            {profile.title} WORKING ACROSS LATENCY, CORRECTNESS & RELEASE CONFIDENCE
+          </p>
         </div>
       </div>
-    </section>
-  )
-}
 
-function CtaBtn({ href, label, primary }: { href: string; label: string; primary?: boolean }) {
-  return (
-    <a
-      href={href}
-      target={href.startsWith('mailto') ? undefined : '_blank'}
-      rel="noopener noreferrer"
-      className={`
-        inline-flex items-center justify-center px-[26px] py-[10px] text-[16px] font-bold transition-all rounded-md shadow-lg
-        ${primary 
-          ? 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm' 
-          : 'bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground shadow-sm'
-        }
-      `}
-    >
-      {label}
-    </a>
+      {/* Massive Central Typography */}
+      <div className="relative z-10 w-full px-4 flex flex-col items-center pointer-events-none select-none mix-blend-overlay text-white text-center">
+        <h1 className="doto-heading text-[15vw] leading-[0.85] tracking-tighter w-full">
+          <span className="block w-full text-center">MAULANA</span>
+          <span className="block w-full text-center">
+            RAFI <span className="text-transparent" style={{ WebkitTextStroke: "min(0.5vw, 2px) white" }}>SDET</span>
+          </span>
+        </h1>
+      </div>
+    </section>
   )
 }

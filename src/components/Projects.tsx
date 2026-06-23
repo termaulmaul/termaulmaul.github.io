@@ -2,45 +2,46 @@ import { profile } from '../data/profile'
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
-      <p className="section-label">
-        <span className="text-accent-400">06.</span> Work
-      </p>
-      <h2 className="devops-title">Projects</h2>
+    <section id="projects" className="py-24 px-6 max-w-[1100px] mx-auto scroll-mt-12">
+      <div className="flex flex-col md:flex-row gap-12 items-start justify-between">
+        <div className="w-full md:w-1/3">
+          <h2 className="doto-heading text-[48px] md:text-[64px] text-[#171717] tracking-tighter flex items-center gap-4">
+            <span className="text-[#a3a3a3]">/</span> WRK
+          </h2>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px]">
-        {profile.projects.map(project => (
-          <div
-            key={project.title}
-            className="card-glass p-[26px] flex flex-col gap-[16px]"
-          >
-            <div>
-              <h3 className="m-0 mb-[10px] text-[16px] font-bold text-foreground font-mono flex items-center gap-[10px]">
-                <span className="text-brand-400">◆</span>
-                {project.title}
-              </h3>
-              <p className="m-0 text-[16px] text-muted-foreground leading-relaxed font-sans border-l-2 border-border pl-[16px]">
-                {project.impact}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-[10px] mt-[10px]">
-              {project.stack.map(s => (
-                <span key={s} className="badge">{s}</span>
-              ))}
-            </div>
-
-            <a
-              href={project.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center gap-[10px] text-[16px] font-mono text-muted-foreground hover:text-highlight-400 transition-colors pt-[16px] border-t border-border"
+        <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {profile.projects.map(project => (
+            <div
+              key={project.title}
+              className="card-glass-light p-8 flex flex-col gap-6"
             >
-              <span className="text-[10px] px-[6px] py-[2px] bg-secondary rounded-xl">⌥</span>
-              View on GitHub →
-            </a>
-          </div>
-        ))}
+              <div>
+                <h3 className="m-0 mb-3 text-[20px] font-bold text-[#171717] font-sans tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="m-0 text-[16px] text-[#52525b] leading-relaxed font-sans">
+                  {project.impact}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.stack.map(s => (
+                  <span key={s} className="badge-light">{s}</span>
+                ))}
+              </div>
+
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-2 text-[14px] font-sans font-medium text-[#171717] hover:text-[#055dff] transition-colors pt-6 border-t border-black/10"
+              >
+                View Details →
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

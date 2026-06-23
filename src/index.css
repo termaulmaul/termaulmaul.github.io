@@ -1,164 +1,118 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
 @theme {
-  --font-sans: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Space Grotesk', ui-monospace, SFMono-Regular, monospace;
+  --font-doto: 'Doto', monospace;
 
-  /* Terminal UI Theme Variables (Dark Mode default - Pure Black & Neon Cyan) */
-  --color-background: hsl(0 0% 0%);
-  --color-foreground: hsl(190 100% 50%);
+  /* Gustaf Furusten Style Theme Variables */
+  --color-background: #404040; /* Hero dark grey */
+  --color-background-light: #f4f4f4; /* Content light grey */
   
-  --color-card: hsl(190 100% 5%);
-  --color-card-foreground: hsl(190 100% 50%);
+  --color-foreground: #ffffff; /* Text in hero */
+  --color-foreground-dark: #171717; /* Text in light section */
   
-  --color-popover: hsl(190 100% 5%);
-  --color-popover-foreground: hsl(190 100% 50%);
+  --color-card: #ffffff;
+  --color-card-foreground: #171717;
   
-  --color-primary: hsl(190 100% 50%); 
-  --color-primary-foreground: hsl(0 0% 0%);
+  --color-popover: rgba(255, 255, 255, 0.8);
+  --color-popover-foreground: #171717;
   
-  --color-secondary: hsl(190 100% 20%);
-  --color-secondary-foreground: hsl(190 100% 50%);
+  --color-primary: #050505;
+  --color-primary-foreground: #ffffff;
   
-  --color-muted: hsl(190 100% 10%);
-  --color-muted-foreground: hsl(190 100% 35%);
+  --color-secondary: #e5e5e5;
+  --color-secondary-foreground: #171717;
   
-  --color-accent: hsl(190 100% 20%);
-  --color-accent-foreground: hsl(190 100% 60%);
+  --color-muted: #a3a3a3;
+  --color-muted-foreground: #52525b;
   
-  --color-destructive: hsl(0 100% 50%);
-  --color-destructive-foreground: hsl(0 0% 0%);
+  --color-accent: #055dff; /* Blue accent */
+  --color-accent-foreground: #ffffff;
   
-  --color-border: hsl(190 100% 30%);
-  --color-input: hsl(190 100% 20%);
-  --color-ring: hsl(190 100% 50%);
-
-  /* Keep legacy variables to prevent broken classes, but map them to Terminal colors */
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  
+  /* Retain brand variables required by existing components */
   --color-brand-400: var(--color-primary);
   --color-brand-500: var(--color-primary);
-  --color-accent-400: var(--color-primary); 
-  --color-accent-500: var(--color-primary);
-  --color-alert-400: var(--color-destructive);
-  --color-warn-400: hsl(60 100% 50%);
-  --color-highlight-400: hsl(190 100% 70%);
+  --color-accent-400: var(--color-accent); 
+  --color-accent-500: var(--color-accent);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
   }
   
   body {
-    @apply bg-background text-foreground font-mono antialiased selection:bg-primary/40 selection:text-background;
-    text-shadow: 0 0 5px hsl(190 100% 50% / 0.5); /* CRT Glow */
+    @apply bg-background text-foreground font-sans antialiased;
   }
   
   ::selection {
-    background-color: hsl(190 100% 50% / 0.4);
-    color: #000;
-  }
-
-  /* CRT Screen / VHS Overlay */
-  body::before {
-    content: " ";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(
-      rgba(18, 16, 16, 0) 50%,
-      rgba(0, 0, 0, 0.25) 50%
-    ), linear-gradient(
-      90deg,
-      rgba(255, 0, 0, 0.06),
-      rgba(0, 255, 255, 0.02),
-      rgba(0, 0, 255, 0.06)
-    );
-    z-index: 9999;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
-  }
-
-  body::after {
-    content: " ";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    z-index: 9999;
-    pointer-events: none;
-    animation: flicker 0.15s infinite;
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
   }
 }
 
 @layer utilities {
   .bg-grid {
-    background-image:
-      linear-gradient(hsl(190 100% 50% / 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(190 100% 50% / 0.1) 1px, transparent 1px);
-    background-size: 42px 42px;
-    background-position: center top;
+    background: none; /* Disable grid */
   }
 
-  /* Shadcn style Card but Terminal */
   .card-glass {
-    @apply bg-card text-card-foreground border border-border rounded-none shadow-[0_0_10px_rgba(0,255,255,0.1)] transition-colors duration-200 relative overflow-hidden;
+    @apply bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-sm transition-all duration-300;
   }
   
-  .card-glass:hover {
-    @apply border-primary shadow-[0_0_15px_rgba(0,255,255,0.3)];
+  .card-glass-light {
+    @apply bg-white/60 border border-black/5 rounded-3xl backdrop-blur-md shadow-sm transition-all duration-300;
+  }
+  
+  .card-glass:hover, .card-glass-light:hover {
+    @apply shadow-md transform -translate-y-1;
   }
 
-  .cursor-blink {
-    animation: blink 1s step-end infinite;
-  }
-  
   .fade-up {
     animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   
-  /* Shadcn style Badge Terminal */
   .badge {
-    @apply inline-flex items-center px-[10px] py-[4px] text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-primary transition-colors duration-200 uppercase tracking-wider;
-    box-shadow: 0 0 5px hsl(190 100% 50% / 0.3);
+    @apply inline-flex items-center px-[12px] py-[6px] text-[11px] font-mono font-medium bg-white/10 text-white border border-white/20 transition-colors duration-200 uppercase tracking-wide rounded-full backdrop-blur-sm;
   }
   
-  .badge:hover {
-    @apply bg-primary text-primary-foreground;
+  .badge-light {
+    @apply inline-flex items-center px-[14px] py-[8px] text-[12px] font-sans font-medium bg-black/5 text-[#52525b] border border-black/10 transition-colors duration-200 tracking-wide rounded-full backdrop-blur-sm;
   }
 
-  /* Section Label Terminal style */
-  .section-label {
-    @apply text-[16px] tracking-widest uppercase font-mono font-bold text-primary mb-[26px] flex items-center gap-[16px];
-    text-shadow: 0 0 8px hsl(190 100% 50% / 0.6);
+  .badge:hover {
+    @apply bg-white/20;
   }
   
-  .section-label::after {
-    content: '';
-    @apply h-px bg-primary/50 flex-1;
+  .badge-light:hover {
+    @apply bg-black/10 text-black border-black/20;
+  }
+
+  .section-label {
+    @apply text-[14px] tracking-wider uppercase font-sans font-bold text-foreground mb-[26px] flex items-center gap-[12px];
+  }
+  
+  .section-label-light {
+    @apply text-[14px] tracking-wider uppercase font-sans font-bold text-foreground-dark mb-[26px] flex items-center gap-[12px];
   }
   
   .devops-title {
-    @apply text-[26px] md:text-[42px] font-bold text-primary mb-[42px] font-mono tracking-tight flex items-center gap-4;
-    text-shadow: 0 0 10px hsl(190 100% 50% / 0.8);
+    @apply text-[32px] md:text-[56px] font-black text-foreground mb-[42px] font-sans tracking-tight;
   }
   
-  .devops-title::before {
-    content: 'C:\\>';
-    @apply text-primary opacity-100 mr-2;
+  .devops-title-light {
+    @apply text-[32px] md:text-[56px] font-black text-foreground-dark mb-[42px] font-sans tracking-tight;
   }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  
+  .doto-heading {
+    @apply font-doto font-black tracking-widest uppercase;
+  }
 }
 
 @keyframes fadeUp {
@@ -166,22 +120,15 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes flicker {
-  0% { opacity: 0.01; }
-  50% { opacity: 0.04; }
-  100% { opacity: 0.01; }
-}
-
-/* Custom Scrollbar - Terminal style */
 ::-webkit-scrollbar { 
-  width: 12px; 
+  width: 8px; 
 }
 ::-webkit-scrollbar-track { 
-  @apply bg-background border-l border-border; 
+  @apply bg-[#f4f4f4]; 
 }
 ::-webkit-scrollbar-thumb { 
-  @apply bg-primary; 
+  @apply bg-[#b3b3b3] rounded-full; 
 }
 ::-webkit-scrollbar-thumb:hover { 
-  @apply bg-primary/80; 
+  @apply bg-[#a3a3a3]; 
 }

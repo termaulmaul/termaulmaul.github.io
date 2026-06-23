@@ -10,74 +10,75 @@ export default function Certifications() {
   }))
 
   return (
-    <section id="certs" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
-      <p className="section-label">
-        <span className="text-accent-400">09.</span> Credentials
-      </p>
-      <h2 className="devops-title">Certifications</h2>
-
-      {/* RHCSA hero card */}
-      <div className="card-glass p-[26px] md:p-[42px] mb-[68px] border-l-[4px] border-l-alert-400 flex flex-col md:flex-row gap-[26px] items-start relative overflow-hidden">
-        {/* Background glow */}
-        <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-alert-400/10 blur-[68px] pointer-events-none rounded-full" />
-        
-        <div className="shrink-0 flex flex-col items-center gap-[10px]">
-          <div className="w-[68px] h-[68px] flex items-center justify-center bg-alert-400/10 border border-alert-400/30 text-[26px] rounded-xl">
-            🎓
-          </div>
-          <span className="text-[10px] text-alert-400 font-bold font-mono tracking-widest">RED HAT</span>
+    <section id="certs" className="py-24 px-6 max-w-[1100px] mx-auto scroll-mt-12">
+      <div className="flex flex-col md:flex-row gap-12 items-start justify-between">
+        <div className="w-full md:w-1/3">
+          <h2 className="doto-heading text-[48px] md:text-[64px] text-[#171717] tracking-tighter flex items-center gap-4">
+            <span className="text-[#a3a3a3]">/</span> CERT
+          </h2>
         </div>
 
-        <div className="flex-1 relative z-10">
-          <div className="flex flex-wrap items-center gap-[16px] mb-[10px]">
-            <h3 className="text-[26px] font-bold text-foreground font-mono leading-none m-0">{featured.title}</h3>
-            <span className="px-[10px] py-[4px] bg-alert-400/10 border border-alert-400/30 text-alert-400 text-[10px] font-bold font-mono uppercase tracking-[0.1em]">
-              {featured.scoreLabel} · {featured.score}
-            </span>
-          </div>
-          
-          <p className="text-[16px] text-muted-foreground mb-[26px] leading-relaxed max-w-[600px] border-l-2 border-border pl-[16px]">
-            {featured.desc}
-          </p>
+        <div className="w-full md:w-2/3 flex flex-col gap-12">
+          {/* Featured Cert */}
+          <div className="card-glass-light p-8 md:p-12 border-l-4 border-l-[#ef4444] flex flex-col md:flex-row gap-8 items-start relative overflow-hidden">
+            <div className="shrink-0 flex flex-col items-center gap-2">
+              <div className="w-16 h-16 flex items-center justify-center bg-[#ef4444]/10 text-[#ef4444] text-[24px] rounded-2xl">
+                🎓
+              </div>
+              <span className="text-[10px] text-[#ef4444] font-bold font-sans tracking-widest uppercase">RED HAT</span>
+            </div>
 
-          <div className="flex flex-wrap gap-[10px] mb-[26px]">
-            {featured.tags.map(tag => (
-              <span key={tag} className="badge !border-alert-400/30 !text-alert-400">{tag}</span>
+            <div className="flex-1">
+              <div className="flex flex-wrap items-center gap-4 mb-2">
+                <h3 className="text-[20px] font-bold text-[#171717] font-sans m-0">{featured.title}</h3>
+                <span className="px-3 py-1 bg-[#ef4444]/10 text-[#ef4444] text-[10px] font-bold font-sans uppercase tracking-widest rounded-full">
+                  {featured.scoreLabel} · {featured.score}
+                </span>
+              </div>
+              
+              <p className="text-[14px] text-[#52525b] mb-6 leading-relaxed max-w-[600px] border-l border-black/10 pl-4">
+                {featured.desc}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {featured.tags.map(tag => (
+                  <span key={tag} className="badge-light text-[#ef4444] border-[#ef4444]/20">{tag}</span>
+                ))}
+              </div>
+
+              <a href={featured.credly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[12px] font-sans font-bold text-[#ef4444] hover:text-[#171717] transition-colors uppercase tracking-widest">
+                Verify on Credly →
+              </a>
+            </div>
+
+            <div className="shrink-0 flex flex-col items-center justify-center p-6 bg-black/5 rounded-xl w-full md:w-auto">
+              <span className="text-[36px] font-bold text-[#ef4444] leading-none tracking-tighter">300</span>
+              <span className="text-[12px] text-[#ef4444]/70 tracking-widest mt-1 font-bold">/ 300</span>
+              <span className="text-[10px] text-[#52525b] uppercase tracking-widest mt-2 font-bold">Exam Score</span>
+            </div>
+          </div>
+
+          {/* Grouped Certs */}
+          <div className="flex flex-col gap-10">
+            {grouped.filter(g => g.certs.length > 0).map(group => (
+              <div key={group.name}>
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-[14px] text-[#171717] font-bold font-sans tracking-widest uppercase">
+                    {group.name}
+                  </span>
+                  <div className="flex-1 h-px bg-black/10" />
+                  <span className="text-[12px] text-[#52525b] font-medium">{group.certs.length} certs</span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {group.certs.map(cert => (
+                    <CertCard key={cert.id} cert={cert} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-
-          <a href={featured.credly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-[10px] text-[10px] md:text-[16px] font-mono text-alert-400 hover:text-foreground transition-colors border-b border-alert-400/30 pb-1">
-            [ Verify on Credly ]
-          </a>
         </div>
-
-        <div className="shrink-0 flex flex-col items-center justify-center p-[26px] bg-card border border-alert-400/20 text-center w-full md:w-auto relative z-10">
-          <span className="text-[42px] font-bold text-alert-400 leading-none font-mono tracking-tighter">300</span>
-          <span className="text-[10px] text-alert-400/70 tracking-[0.1em] mt-1 font-mono">/ 300</span>
-          <span className="text-[10px] text-muted-foreground uppercase tracking-widest mt-[10px] font-mono">Exam Score</span>
-          <div className="w-[42px] h-[2px] bg-alert-400 mt-[10px]" />
-        </div>
-      </div>
-
-      {/* Grouped remaining certs */}
-      <div className="flex flex-col gap-[42px]">
-        {grouped.filter(g => g.certs.length > 0).map(group => (
-          <div key={group.name}>
-            <div className="flex items-center gap-[16px] mb-[26px]">
-              <span className="text-[16px] text-brand-400 font-bold font-mono tracking-widest uppercase">
-                {group.name}
-              </span>
-              <div className="flex-1 h-px bg-secondary" />
-              <span className="text-[10px] text-muted-foreground font-mono">[{group.certs.length} certs]</span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px]">
-              {group.certs.map(cert => (
-                <CertCard key={cert.id} cert={cert} />
-              ))}
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   )
@@ -87,35 +88,32 @@ type Cert = typeof profile.certifications[number]
 
 function CertCard({ cert }: { cert: Cert }) {
   return (
-    <div className="card-glass p-[26px] flex flex-col gap-[16px] border-l-[2px] border-l-brand-500">
+    <div className="card-glass-light p-6 flex flex-col gap-4 border-t-2 border-t-[#055dff]">
       <div className="flex-1">
-        <span className="inline-block mb-[10px] text-[10px] px-[6px] py-[2px] bg-brand-500/10 border border-brand-500/30 text-brand-400 font-bold tracking-widest font-mono uppercase">
+        <span className="inline-block mb-2 text-[10px] px-2 py-1 bg-[#055dff]/10 text-[#055dff] font-bold tracking-widest font-sans uppercase rounded-md">
           {cert.issuer}
         </span>
-        <h4 className="text-[16px] font-bold text-foreground font-mono leading-snug m-0 mb-[10px]">
+        <h4 className="text-[16px] font-bold text-[#171717] font-sans leading-snug m-0 mb-2">
           {cert.title}
         </h4>
-        <p className="text-[16px] text-muted-foreground leading-relaxed font-sans m-0">
+        <p className="text-[14px] text-[#52525b] leading-relaxed font-sans m-0">
           {cert.desc}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-[6px]">
+      <div className="flex flex-wrap gap-2">
         {cert.tags.slice(0, 3).map(tag => (
-          <span key={tag} className="badge text-[10px]">{tag}</span>
+          <span key={tag} className="badge-light text-[10px]">{tag}</span>
         ))}
-        {cert.tags.length > 3 && (
-          <span className="text-[10px] text-muted-foreground font-mono flex items-center">+{cert.tags.length - 3}</span>
-        )}
       </div>
 
       <a
         href={cert.credly}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-auto pt-[16px] border-t border-border text-[10px] font-mono text-muted-foreground hover:text-highlight-400 transition-colors flex items-center gap-[10px]"
+        className="mt-auto pt-4 border-t border-black/10 text-[12px] font-sans font-bold text-[#52525b] hover:text-[#055dff] transition-colors flex items-center"
       >
-        <span>[ Verify ]</span>
+        Verify →
       </a>
     </div>
   )

@@ -2,63 +2,62 @@ import { profile } from '../data/profile'
 
 export default function DomainExperience() {
   return (
-    <section id="domains" className="py-[68px] px-[26px] max-w-[1100px] mx-auto scroll-mt-[68px]">
-      <p className="section-label">
-        <span className="text-accent-400">05.</span> Domain Depth
-      </p>
-      <h2 className="devops-title">Domain Experience</h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[26px]">
-        {/* Capital Markets */}
-        <div className="card-glass p-[26px]">
-          <div className="flex items-center gap-[16px] mb-[26px]">
-            <span className="text-[26px] p-[10px] bg-secondary/50 border border-border text-highlight-400 rounded-xl">📈</span>
-            <div>
-              <h3 className="m-0 text-[16px] font-bold text-foreground font-mono">Capital Markets & FinTech</h3>
-              <p className="m-0 text-[10px] md:text-[16px] text-highlight-400 font-mono mt-1">trading · reliability · correctness</p>
-            </div>
-          </div>
-          <p className="mb-[26px] text-[16px] text-muted-foreground leading-relaxed border-l-2 border-border pl-[16px]">
-            Quality workflows for trading and financial systems where reliability, timing, and correctness matter.
-          </p>
-          <ul className="m-0 p-0 list-none flex flex-col gap-[10px]">
-            {profile.capitalMarkets.map(item => (
-              <li key={item} className="flex items-start gap-[10px] text-[16px] text-muted-foreground">
-                <span className="text-highlight-400 mt-[2px] font-bold">[{'>'}]</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+    <section id="domains" className="py-24 px-6 max-w-[1100px] mx-auto scroll-mt-12">
+      <div className="flex flex-col md:flex-row gap-12 items-start justify-between">
+        <div className="w-full md:w-1/3">
+          <h2 className="doto-heading text-[48px] md:text-[64px] text-[#171717] tracking-tighter flex items-center gap-4">
+            <span className="text-[#a3a3a3]">/</span> DOMAIN
+          </h2>
         </div>
 
-        {/* Healthcare */}
-        <div className="card-glass p-[26px]">
-          <div className="flex items-center gap-[16px] mb-[26px]">
-            <span className="text-[26px] p-[10px] bg-secondary/50 border border-border text-accent-400 rounded-xl">🏥</span>
-            <div>
-              <h3 className="m-0 text-[16px] font-bold text-foreground font-mono">Healthcare Systems</h3>
-              <p className="m-0 text-[10px] md:text-[16px] text-accent-400 font-mono mt-1">PT. Anugerah Mitrautama Sejahtera</p>
+        <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Fintech Domain */}
+          <div className="card-glass-light p-8 border-t-4 border-t-[#055dff]">
+            <h3 className="m-0 mb-4 text-[20px] font-bold text-[#171717] font-sans tracking-tight">Fintech & Finance</h3>
+            <p className="m-0 text-[14px] text-[#52525b] leading-relaxed font-sans mb-6">
+              Ensuring the accuracy, security, and low-latency performance of financial transactions, payment gateways, and core banking modules.
+            </p>
+            <ul className="mb-6 p-0 list-none flex flex-col gap-3">
+              {profile.fintech.map(item => (
+                <li key={item} className="flex items-start gap-2 text-[14px] text-[#52525b]">
+                  <span className="text-[#055dff] mt-1 text-[10px]">■</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="m-0 mb-2 text-[10px] text-[#a3a3a3] uppercase tracking-widest font-sans font-bold">Systems Validated</p>
+            <div className="flex flex-wrap gap-2">
+              {profile.fintechRefs.map(ref => (
+                <span key={ref} className="text-[12px] px-3 py-1 rounded-full bg-black/5 border border-black/10 text-[#171717] font-sans">
+                  {ref}
+                </span>
+              ))}
             </div>
           </div>
-          <p className="mb-[26px] text-[16px] text-muted-foreground leading-relaxed border-l-2 border-border pl-[16px]">
-            Implementation and operational readiness for healthcare technology systems across Indonesia.
-          </p>
-          <ul className="mb-[26px] p-0 list-none flex flex-col gap-[10px]">
-            {profile.healthcare.map(item => (
-              <li key={item} className="flex items-start gap-[10px] text-[16px] text-muted-foreground">
-                <span className="text-accent-400 mt-[2px] font-bold">[{'>'}]</span>
-                {item}
-              </li>
-            ))}
-          </ul>
 
-          <p className="m-0 mb-[10px] text-[10px] text-muted-foreground uppercase tracking-[0.1em] font-mono">Selected Deployments</p>
-          <div className="flex flex-wrap gap-[10px]">
-            {profile.healthcareRefs.map(ref => (
-              <span key={ref} className="text-[10px] px-[10px] py-[4px] rounded-xl bg-accent-400/10 border border-accent-400/20 text-accent-400 font-mono">
-                {ref}
-              </span>
-            ))}
+          {/* Healthcare Domain */}
+          <div className="card-glass-light p-8 border-t-4 border-t-[#10b981]">
+            <h3 className="m-0 mb-4 text-[20px] font-bold text-[#171717] font-sans tracking-tight">Healthcare Tech</h3>
+            <p className="m-0 text-[14px] text-[#52525b] leading-relaxed font-sans mb-6">
+              Implementation and operational readiness for healthcare technology systems across Indonesia.
+            </p>
+            <ul className="mb-6 p-0 list-none flex flex-col gap-3">
+              {profile.healthcare.map(item => (
+                <li key={item} className="flex items-start gap-2 text-[14px] text-[#52525b]">
+                  <span className="text-[#10b981] mt-1 text-[10px]">■</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <p className="m-0 mb-2 text-[10px] text-[#a3a3a3] uppercase tracking-widest font-sans font-bold">Selected Deployments</p>
+            <div className="flex flex-wrap gap-2">
+              {profile.healthcareRefs.map(ref => (
+                <span key={ref} className="text-[12px] px-3 py-1 rounded-full bg-black/5 border border-black/10 text-[#171717] font-sans">
+                  {ref}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
