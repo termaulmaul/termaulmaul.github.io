@@ -20,18 +20,18 @@ export default function Certifications() {
 
         <div className="w-full md:w-2/3 flex flex-col gap-12">
           {/* Featured Cert */}
-          <div className="card-glass p-8 md:p-12 border-l-4 border-l-[#ef4444] flex flex-col md:flex-row gap-8 items-start relative overflow-hidden">
+          <div className="card-glass p-8 md:p-12 border-l-4 border-l-[#f87171] flex flex-col md:flex-row gap-8 items-start relative overflow-hidden">
             <div className="shrink-0 flex flex-col items-center gap-2">
-              <div className="w-16 h-16 flex items-center justify-center bg-[#ef4444]/10 text-[#ef4444] text-[24px] rounded-2xl">
+              <div className="w-16 h-16 flex items-center justify-center bg-[#f87171]/10 text-[#f87171] text-[24px] rounded-2xl">
                 🎓
               </div>
-              <span className="text-[10px] text-[#ef4444] font-bold font-sans tracking-widest uppercase">RED HAT</span>
+              <span className="text-[10px] text-[#f87171] font-bold font-sans tracking-widest uppercase">RED HAT</span>
             </div>
 
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-4 mb-2">
                 <h3 className="text-[20px] font-bold text-[#ffffff] font-sans m-0">{featured.title}</h3>
-                <span className="px-3 py-1 bg-[#ef4444]/10 text-[#ef4444] text-[10px] font-bold font-sans uppercase tracking-widest rounded-full">
+                <span className="px-3 py-1 bg-[#f87171]/10 text-[#f87171] text-[10px] font-bold font-sans uppercase tracking-widest rounded-full">
                   {featured.scoreLabel} · {featured.score}
                 </span>
               </div>
@@ -42,18 +42,18 @@ export default function Certifications() {
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {featured.tags.map(tag => (
-                  <span key={tag} className="badge text-[#ef4444] border-[#ef4444]/20">{tag}</span>
+                  <span key={tag} className="badge text-[#f87171] border-[#ef4444]/20">{tag}</span>
                 ))}
               </div>
 
-              <a href={featured.credly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[12px] font-sans font-bold text-[#ef4444] hover:text-[#ffffff] transition-colors uppercase tracking-widest">
+              <a href={featured.credly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[12px] font-sans font-bold text-[#f87171] hover:text-[#ffffff] transition-colors uppercase tracking-widest">
                 Verify on Credly →
               </a>
             </div>
 
             <div className="shrink-0 flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl w-full md:w-auto">
-              <span className="text-[36px] font-bold text-[#ef4444] leading-none tracking-tighter">300</span>
-              <span className="text-[12px] text-[#ef4444]/70 tracking-widest mt-1 font-bold">/ 300</span>
+              <span className="text-[36px] font-bold text-[#f87171] leading-none tracking-tighter">300</span>
+              <span className="text-[12px] text-[#f87171]/70 tracking-widest mt-1 font-bold">/ 300</span>
               <span className="text-[10px] text-[#a3a3a3] uppercase tracking-widest mt-2 font-bold">Exam Score</span>
             </div>
           </div>
@@ -88,9 +88,9 @@ type Cert = typeof profile.certifications[number]
 
 function CertCard({ cert }: { cert: Cert }) {
   return (
-    <div className="card-glass p-6 flex flex-col gap-4 border-t-2 border-t-[#055dff]">
+    <div className="card-glass p-6 flex flex-col gap-4 border-t-2 border-t-[#60a5fa]">
       <div className="flex-1">
-        <span className="inline-block mb-2 text-[10px] px-2 py-1 bg-[#055dff]/10 text-[#055dff] font-bold tracking-widest font-sans uppercase rounded-md">
+        <span className="inline-block mb-2 text-[10px] px-2 py-1 bg-[#60a5fa]/10 text-[#60a5fa] font-bold tracking-widest font-sans uppercase rounded-md">
           {cert.issuer}
         </span>
         <h4 className="text-[16px] font-bold text-[#ffffff] font-sans leading-snug m-0 mb-2">
@@ -111,7 +111,7 @@ function CertCard({ cert }: { cert: Cert }) {
         href={cert.credly}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-auto pt-4 border-t border-white/10 text-[12px] font-sans font-bold text-[#a3a3a3] hover:text-[#055dff] transition-colors flex items-center"
+        className="mt-auto pt-4 border-t border-white/10 text-[12px] font-sans font-bold text-[#a3a3a3] hover:text-[#60a5fa] transition-colors flex items-center"
       >
         Verify →
       </a>

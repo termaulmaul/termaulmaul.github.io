@@ -12,7 +12,7 @@ export default function DomainExperience() {
 
         <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Capital Markets Domain */}
-          <div className="card-glass p-8 border-t-4 border-t-[#055dff]">
+          <div className="card-glass p-8 border-t-4 border-t-[#60a5fa]">
             <h3 className="m-0 mb-4 text-[20px] font-bold text-[#ffffff] font-sans tracking-tight">Capital Markets & Trading</h3>
             <p className="m-0 text-[14px] text-[#a3a3a3] leading-relaxed font-sans mb-6">
               Ensuring the accuracy, security, and low-latency performance of financial transactions, payment gateways, and core exchange modules.
@@ -20,7 +20,7 @@ export default function DomainExperience() {
             <ul className="mb-6 p-0 list-none flex flex-col gap-3">
               {profile.capitalMarkets.map((item: string) => (
                 <li key={item} className="flex items-start gap-2 text-[14px] text-[#a3a3a3]">
-                  <span className="text-[#055dff] mt-1 text-[10px]">■</span>
+                  <span className="text-[#60a5fa] mt-1 text-[10px]">■</span>
                   {item}
                 </li>
               ))}
@@ -28,7 +28,7 @@ export default function DomainExperience() {
           </div>
 
           {/* Healthcare Domain */}
-          <div className="card-glass p-8 border-t-4 border-t-[#10b981]">
+          <div className="card-glass p-8 border-t-4 border-t-[#34d399]">
             <h3 className="m-0 mb-4 text-[20px] font-bold text-[#ffffff] font-sans tracking-tight">Healthcare Tech</h3>
             <p className="m-0 text-[14px] text-[#a3a3a3] leading-relaxed font-sans mb-6">
               Implementation and operational readiness for healthcare technology systems across Indonesia.
@@ -36,7 +36,7 @@ export default function DomainExperience() {
             <ul className="mb-6 p-0 list-none flex flex-col gap-3">
               {profile.healthcare.map((item: string) => (
                 <li key={item} className="flex items-start gap-2 text-[14px] text-[#a3a3a3]">
-                  <span className="text-[#10b981] mt-1 text-[10px]">■</span>
+                  <span className="text-[#34d399] mt-1 text-[10px]">■</span>
                   {item}
                 </li>
               ))}

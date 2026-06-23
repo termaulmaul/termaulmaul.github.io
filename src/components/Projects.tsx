@@ -35,7 +35,7 @@ export default function Projects() {
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-2 text-[14px] font-sans font-medium text-[#ffffff] hover:text-[#055dff] transition-colors pt-6 border-t border-white/10"
+                className="mt-auto inline-flex items-center gap-2 text-[14px] font-sans font-medium text-[#ffffff] hover:text-[#60a5fa] transition-colors pt-6 border-t border-white/10"
               >
                 View Details →
               </a>

@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   build: {
+    sourcemap: true,
     cssCodeSplit: true,
     assetsInlineLimit: 4096,
     rollupOptions: {

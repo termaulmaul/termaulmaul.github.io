@@ -17,7 +17,7 @@ export default function ExpertiseCards() {
               className="card-glass p-8 flex flex-col gap-4"
             >
               <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-                <span className="text-[20px] text-[#055dff]">{card.icon}</span>
+                <span className="text-[20px] text-[#60a5fa]">{card.icon}</span>
                 <h3 className="m-0 text-[16px] font-bold text-[#ffffff] font-sans">{card.title}</h3>
               </div>
               <p className="m-0 text-[14px] text-[#a3a3a3] leading-relaxed font-sans">{card.desc}</p>

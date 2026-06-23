@@ -15,7 +15,7 @@ export default function CurrentFocus() {
             {profile.currentFocus.map((item, i) => (
               <div
                 key={i}
-                className="card-glass p-8 flex flex-col gap-4 border-l-4 border-l-[#055dff]"
+                className="card-glass p-8 flex flex-col gap-4 border-l-4 border-l-[#60a5fa]"
               >
                 <span className="text-[#ffffff] text-[16px] font-medium leading-relaxed font-sans">{item}</span>
               </div>
