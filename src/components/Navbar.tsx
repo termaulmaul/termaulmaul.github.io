@@ -19,7 +19,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-8 left-0 right-0 z-50 flex justify-center w-full pointer-events-none px-4">
+    <nav className="fixed top-8 left-0 right-0 z-50 flex justify-center w-full pointer-events-none px-4 mix-blend-difference">
       <div 
         className={`pointer-events-auto relative flex items-center justify-center gap-6 md:gap-10 px-8 py-3 rounded-full transition-all duration-700 ease-out border ${
           scrolled 
@@ -29,14 +29,14 @@ export default function Navbar() {
       >
         {/* Animated Gradient Background Overlay */}
         <div 
-          className={`absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/10 to-purple-500/20 pointer-events-none transition-opacity duration-1000 ${
+          className={`absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/10 to-purple-500/20 bg-gradient-liquid pointer-events-none transition-opacity duration-1000 ${
             scrolled ? 'opacity-100' : 'opacity-0'
           }`} 
         />
         
         {/* Glowing Border effect */}
         <div 
-          className={`absolute -inset-[1px] rounded-full bg-gradient-to-r from-cyan-500/50 via-transparent to-blue-500/50 pointer-events-none transition-opacity duration-1000 -z-10 ${
+          className={`absolute -inset-[1px] rounded-full bg-gradient-to-r from-cyan-500/50 via-[#050505] to-blue-500/50 bg-gradient-liquid pointer-events-none transition-opacity duration-1000 -z-10 ${
             scrolled ? 'opacity-100' : 'opacity-0'
           }`} 
         />
